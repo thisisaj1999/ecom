@@ -1,0 +1,36 @@
+.NavbarMain {
+	display: flex;
+	padding: 1.2rem 2rem;
+	justify-content: space-between;
+	filter: brightness(100%);
+}
+
+.NavbarMenuContainer {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.Link{
+	color: white !important;
+	font-weight: 300;
+	text-decoration: none;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.3rem;
+
+	& p {
+		margin: 0;
+	}
+	
+
+	&:hover{
+		font-weight: 500;
+	}
+}
+
+.UserAvatar{
+    cursor: pointer;
+}

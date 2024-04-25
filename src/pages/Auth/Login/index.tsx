@@ -6,8 +6,12 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import GoogleLogo from "../../../assets/google-logo.svg";
 import { useGlobalStore } from "../../../utils/store";
 import { ILoginDetails } from "../../../contracts/ILoginDetails";
+import { useAuth } from '../../../utils/services/authentication';
+import { useSnackbar } from 'notistack';
 
 const index:React.FC = () => {
+  const Auth = useAuth();
+  const { enqueueSnackbar } = useSnackbar();
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -40,18 +44,27 @@ const index:React.FC = () => {
 		navigate("/register");	
 	}
 
+  const GoogleAuthentication = async () => {
+    const Response = await Auth.SignInGoogle();
+
+    if (Response) {
+        navigate('/dashboard')
+        enqueueSnackbar("Sign In successfull", { variant: 'success' });
+      } else {
+        enqueueSnackbar("Something went wrong", { variant: 'warning' });
+    }
+  };
+
   const onFinish = async (values:ILoginDetails) => {
-    // const Response = await Auth.SignIn(values.email, values.password)
-		// if(Response?.Success){
-		// 	localStorage.setItem('isAuth', true);
-		// 	router.push("/sale");
-		// 	enqueueSnackbar("Sign Up successfull", { variant: 'success' });
-		// }else{
-		// 	if (Response?.Error && Response.Error.includes("invalid") && Response.Error.includes("credential")) {
-		// 		enqueueSnackbar("Invalid Credentials", { variant: 'warning' });
-		// 	}
-		// }
-    console.log(values)
+    const Response = await Auth.SignIn(values.email, values.password)
+		if(Response?.Success){
+			navigate("/dashboard");
+			enqueueSnackbar("Sign In successfull", { variant: 'success' });
+		}else{
+			if (Response?.Error && Response.Error.includes("invalid") && Response.Error.includes("credential")) {
+				enqueueSnackbar("Invalid Credentials", { variant: 'warning' });
+			}
+		}
   };
 
 	return (
@@ -80,7 +93,7 @@ const index:React.FC = () => {
               <Button
                 className={styles.AuthFormGoogleBtn}
                 type="primary"
-                // onClick={async () => await GoogleAuthentication()}
+                onClick={async () => await GoogleAuthentication()}
               >
                 <img src={GoogleLogo} alt="GoogleLogo" /> Sign in with Google
               </Button>

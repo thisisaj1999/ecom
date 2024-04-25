@@ -34,7 +34,7 @@ function useProvideAuth() {
     //         const SessionTokenManager: any = User?.stsTokenManager;
 
     //         if (SessionTokenManager != undefined) {
-    //             const ExpiresIn = (parseInt(SessionTokenManager.expirationTime / 1000) - parseInt(Date.now() / 1000)) / 60;
+    //             const ExpiresIn = ((SessionTokenManager.expirationTime / 1000) - (Date.now() / 1000)) / 60;
 
     //             if (ExpiresIn <= 1) {
     //                 const newToken = await GetToken(User);
@@ -52,15 +52,15 @@ function useProvideAuth() {
     //     }
     // }, [User]);
 
-    // const CurrentUser = () => {
-    //     try {
-    //         return firebase.auth().currentUser;
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
+    const CurrentUser = () => {
+        try {
+            return AuthInstance.Handle.currentUser;
+        } catch (error) {
+            console.log(error)
+        }
 
-    //     return null;
-    // };
+        return null;
+    };
 
     const GetToken = async (User: any) => {
         try {
@@ -154,7 +154,6 @@ function useProvideAuth() {
         try {
             await AuthInstance.signOut(AuthInstance.Handle);
             localStorage.removeItem('Profile');
-            localStorage.setItem('isAuth', String(false));
             handleUser(false);
 
             return true;
@@ -191,6 +190,7 @@ function useProvideAuth() {
         User,
         Profile,
         Token,
+        CurrentUser,
         SignUp,
         SignIn,
         SignInGoogle,

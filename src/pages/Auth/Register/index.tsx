@@ -6,9 +6,13 @@ import { useGlobalStore } from "../../../utils/store"
 import GoogleLogo from "../../../assets/google-logo.svg";
 import { useNavigate, useLocation } from "react-router-dom";
 import { IRegisterDetails } from "../../../contracts/IRegisterDetails";
+import { useAuth } from '../../../utils/services/authentication';
+import { useSnackbar } from 'notistack';
 
 const index:React.FC = () => {
-	
+	const Auth = useAuth();
+  const { enqueueSnackbar } = useSnackbar();
+
 	const location = useLocation()
   const navigate = useNavigate()
 	
@@ -40,18 +44,27 @@ const index:React.FC = () => {
 		navigate("/login");
 	};
 
+	const GoogleAuthentication = async () => {
+		const Response = await Auth.SignInGoogle();
+
+		if (Response) {
+				navigate('/dashboard')
+				enqueueSnackbar("Sign Up successfull", { variant: 'success' });
+			} else {
+				enqueueSnackbar("Something went wrong", { variant: 'warning' });
+		}
+	};
+
 	const onFinish = async (values:IRegisterDetails) => {
-    // const Response = await Auth.SignUp(values.email, values.password)
-		// if(Response?.Success){
-		// 	localStorage.setItem('isAuth', true);
-		// 	router.push("/sale");
-		// 	enqueueSnackbar("Sign Up successfull", { variant: 'success' });
-		// }else{
-		// 	if (Response?.Error && Response.Error.includes("email") && Response.Error.includes("already") && Response.Error.includes("in") && Response.Error.includes("use")) {
-		// 		enqueueSnackbar("Email already in use!", { variant: 'warning' });
-		// 	}
-		// }
-    console.log(values)
+    const Response = await Auth.SignUp(values.email, values.password)
+		if(Response?.Success){
+			navigate("/dashboard");
+			enqueueSnackbar("Sign Up successfull", { variant: 'success' });
+		}else{
+			if (Response?.Error && Response.Error.includes("email") && Response.Error.includes("already") && Response.Error.includes("in") && Response.Error.includes("use")) {
+				enqueueSnackbar("Email already in use!", { variant: 'warning' });
+			}
+		}
   };
 
 	return (
@@ -80,7 +93,7 @@ const index:React.FC = () => {
 							<Button
 								className={styles.AuthFormGoogleBtn}
 								type="primary"
-								// onClick={async () => await GoogleAuthentication()}
+								onClick={async () => await GoogleAuthentication()}
 							>
 								<img src={GoogleLogo} alt="GoogleLogo" /> Sign up with
 								Google

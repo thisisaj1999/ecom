@@ -1,78 +1,33 @@
 import React from "react";
 import { Typography } from "antd";
-import { useGlobalStore } from "../../utils/store";
 import styles from "./Navbar.module.scss";
+import { useAuth } from "../../utils/services/authentication";
+import { useNavigate } from "react-router-dom";
 
 // Image
 import User from "../../assets/user.svg";
 import Search from "../../assets/search.svg";
 import Cart from "../../assets/cart.svg";
+import Logo from "../../assets/logo.svg";
 
 const index: React.FC = () => {
-	const State = {
-		globalStore: {
-			isSidebarCollapsed: useGlobalStore(
-				(state: any) => state.isSidebarCollapsed
-			),
-		},
+
+	const Auth = useAuth()
+
+	const navigate = useNavigate();
+
+	const SignOutBtn = async () => {
+    await Auth.SignOut();
 	};
 
-	const Update = {
-		globalStore: {
-			isSidebarCollapsed: useGlobalStore(
-				(state: any) => state.setIsSidebarCollapsed
-			),
-		},
+  const SignInBtn = async () => {
+		navigate('/login')
 	};
-
-	const toggleCollapsed = () => {
-		Update.globalStore.isSidebarCollapsed(
-			!State.globalStore.isSidebarCollapsed
-		);
-	};
-
-	const userMenuItems = [
-		{
-			key: "1",
-			label: (
-				<a
-					target="_blank"
-					rel="noopener noreferrer"
-					href="https://www.antgroup.com"
-				>
-					Categories
-				</a>
-			),
-		},
-		{
-			key: "2",
-			label: (
-				<a
-					target="_blank"
-					rel="noopener noreferrer"
-					href="https://www.aliyun.com"
-				>
-					2nd menu item
-				</a>
-			),
-		},
-		{
-			key: "3",
-			label: (
-				<a
-					target="_blank"
-					rel="noopener noreferrer"
-					href="https://www.luohanacademy.com"
-				>
-					3rd menu item
-				</a>
-			),
-		},
-	];
 
 	return (
 		<div className={styles.NavbarMain}>
 			<div className={styles.NavbarMenuContainer}>
+				<img src={Logo} alt="Logo" width={100}/>
 				<Typography.Link href="#API" className={styles.Link}>
 					Categories
 				</Typography.Link>
@@ -102,10 +57,10 @@ const index: React.FC = () => {
 					<img src={Cart} alt="" width={21} />
 					<p>Cart(0)</p>
 				</Typography.Link>
-				<Typography.Link href="#API" className={styles.Link}>
-					<img src={User} alt="" width={19} />
-					<p>Login</p>
-				</Typography.Link>
+					<Typography.Link className={styles.Link} onClick={Auth?.User ? SignOutBtn : SignInBtn}>
+						<img src={User} alt="" width={19} />
+						{Auth?.User ? <p>Logout</p> : <p>Login</p>}
+					</Typography.Link>
 			</div>
 		</div>
 	);

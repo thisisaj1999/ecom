@@ -2,45 +2,55 @@ import { useMemo } from "react";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import Home from "../pages/Home";
-import { useGlobalStore } from "../utils/store";
+import Dashboard from "../pages/Dashboard";
 import { IRouteConfig } from "../contracts/IRouteConfig";
+import { useAuth } from '../utils/services/authentication'
 
 const RoutesConfig = () => {
-	const State = {
-		globalState: {
-			isLoggedIn: useGlobalStore((state) => state.isLoggedIn),
-		},
-	};
+
+	const Auth = useAuth()
+	const {User} = Auth;
 
 	return useMemo(() => {
 		// public routes
 		let routesArray: IRouteConfig[] = [
 			{
-				path: `/login`,
-				component: Login,
-				exact: true,
-			},
-			{
-				path: `/register`,
-				component: Register,
+				path: `/`,
+				component: Home,
 				exact: true,
 			},
 		];
 
 		// protected routes
-		if (State.globalState.isLoggedIn) {
+		if (User) {
 			routesArray = [
 				...routesArray,
 				{
-					path: `/`,
-					component: Home,
+					path: `/dashboard`,
+					component: Dashboard,
+					exact: true,
+				},
+			];
+		}
+		
+		if(!User) {
+			routesArray = [
+				...routesArray,
+				{
+					path: `/login`,
+					component: Login,
+					exact: true,
+				},
+				{
+					path: `/register`,
+					component: Register,
 					exact: true,
 				},
 			];
 		}
 
 		return routesArray;
-	}, [State.globalState.isLoggedIn]);
+	}, [User]);
 
 	// return routes
 };

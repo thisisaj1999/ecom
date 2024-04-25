@@ -1,20 +1,16 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useGlobalStore } from "../utils/store";
+import { useAuth } from '../utils/services/authentication'
 
 const Redirect: React.FC = () => {
 
-	const State = {
-		globalState: {
-			isLoggedIn: useGlobalStore((state) => state.isLoggedIn),
-		}
-	};
-
 	const navigate = useNavigate();
-
+	const Auth = useAuth()
+	const {User} = Auth;
+	
 	useEffect(() => {
-		navigate(State.globalState.isLoggedIn ? "/" : "/login");
-	}, [State.globalState.isLoggedIn, navigate]);
+		navigate(User ? "/dashboard" : "/");
+	}, [User]);
 
 	return null;
 };

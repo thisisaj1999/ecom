@@ -21,14 +21,15 @@ import {
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC4S0cwJ-1h8n5PTyr9CB0kDiYKCzF2ljk",
-  authDomain: "nokart-68207.firebaseapp.com",
-  projectId: "nokart-68207",
-  storageBucket: "nokart-68207.appspot.com",
-  messagingSenderId: "1060167504455",
-  appId: "1:1060167504455:web:65fb8bb2aa1a487ad45762",
-  measurementId: "G-YXP8NKSP5G"
+    apiKey: "AIzaSyCNy6Vy_M4GuwIxgS5aaj07WsWCQuKsp3o",
+    authDomain: "ecom-aba24.firebaseapp.com",
+    projectId: "ecom-aba24",
+    storageBucket: "ecom-aba24.appspot.com",
+    messagingSenderId: "25336288921",
+    appId: "1:25336288921:web:8f0239f7919a00d8b28a08",
+    measurementId: "G-WETDZD3GEX"
 };
+  
 
 let FirebaseInstance;
 

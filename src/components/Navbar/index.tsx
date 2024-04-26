@@ -13,7 +13,6 @@ import Logo from "../../assets/logo.svg";
 const index: React.FC = () => {
 
 	const Auth = useAuth()
-
 	const navigate = useNavigate();
 
 	const SignOutBtn = async () => {

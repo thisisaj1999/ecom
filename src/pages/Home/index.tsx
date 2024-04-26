@@ -4,16 +4,15 @@ import { useGlobalStore } from "../../utils/store";
 import { useLocation } from "react-router-dom";
 import homepageImg from "../../assets/homepageImg.jpg";
 import Navbar from "../../components/Navbar";
-import {useAuth} from '../../utils/services/authentication'
+import { useAuth } from "../../utils/services/authentication";
 import { useNavigate } from "react-router-dom";
-import { useSnackbar } from 'notistack';
+import { useSnackbar } from "notistack";
 
 const index: React.FC = () => {
-
-  const Auth = useAuth()
-  const navigate = useNavigate();
+	const Auth = useAuth();
+	const navigate = useNavigate();
 	const location = useLocation();
-  const { enqueueSnackbar } = useSnackbar();
+	const { enqueueSnackbar } = useSnackbar();
 
 	const Update = {
 		Global: {
@@ -35,28 +34,51 @@ const index: React.FC = () => {
 		width: "100%",
 	};
 
-  const handleShopNowBtn = (e:any) => {
-    e.preventDefault()
-    if(Auth.User) {
-      navigate('/dashboard')
-    }else{
-      navigate('/login')
-      enqueueSnackbar("Please sign in to visit shop", { variant: 'info' });
-    }
-  }
+	const handleShopNowBtn = (e: any) => {
+		e.preventDefault();
+		if (Auth.User) {
+			navigate("/dashboard");
+		} else {
+			navigate("/login");
+			enqueueSnackbar("Please sign in to visit shop", {
+				variant: "info",
+			});
+		}
+	};
 
 	return (
-		<div className={styles.HomeContainer} style={backgroundImageStyles}>
-			<Navbar />
-			<h1 className={styles.HeroHeading}>Bolt Sport Project</h1>
-			<p className={styles.HeroSubHeading}>
-				Introducing our latest collection, designed specifically for
-				outdoor enthusiasts. Features a range of high-performance
-				outwear with a range of bold and vibrant colors and patterns to
-				choose from.
-			</p>
-			<button className={styles.HeroShopNowBtn} onClick={(e) => handleShopNowBtn(e)}>Shop Now</button>
-		</div>
+		<main className={styles.LandingPageMain}>
+			
+			{/* Hero */}
+			<section
+				className={styles.HomeContainer}
+				style={backgroundImageStyles}
+			>
+				<Navbar />
+				<h1 className={styles.HeroHeading}>Bolt Sport Project</h1>
+				<p className={styles.HeroSubHeading}>
+					Introducing our latest collection, designed specifically for
+					outdoor enthusiasts. Features a range of high-performance
+					outwear with a range of bold and vibrant colors and patterns
+					to choose from.
+				</p>
+				<button
+					className={styles.HeroShopNowBtn}
+					onClick={(e) => handleShopNowBtn(e)}
+				>
+					Shop Now
+				</button>
+			</section>
+
+			{/* New Arrivals */}
+			<section className={styles.NewArrivalsContainer}>
+				<h1 className={styles.NewArrivalsHeading}>New Arrivals</h1>
+				<p className={styles.NewArrivalsSubHeading}>
+					Our new arrivals are built to withstand your activities
+					while keeping you looking your best!
+				</p>
+			</section>
+		</main>
 	);
 };
 

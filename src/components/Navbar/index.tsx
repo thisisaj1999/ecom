@@ -27,32 +27,32 @@ const index: React.FC = () => {
 		<div className={styles.NavbarMain}>
 			<div className={styles.NavbarMenuContainer}>
 				<img src={Logo} alt="Logo" width={100}/>
-				<Typography.Link href="#API" className={styles.Link}>
+				<Typography.Link className={styles.Link}>
 					Categories
 				</Typography.Link>
 
-				<Typography.Link href="#API" className={styles.Link}>
+				<Typography.Link className={styles.Link}>
 					Collection
 				</Typography.Link>
 
-				<Typography.Link href="#API" className={styles.Link}>
+				<Typography.Link className={styles.Link}>
 					Store
 				</Typography.Link>
 
-				<Typography.Link href="#API" className={styles.Link}>
+				<Typography.Link className={styles.Link}>
 					Blog
 				</Typography.Link>
-				<Typography.Link href="#API" className={styles.Link}>
+				<Typography.Link className={styles.Link}>
 					Find Store
 				</Typography.Link>
 			</div>
 
 			<div className={styles.NavbarMenuContainer}>
-				<Typography.Link href="#API" className={styles.Link}>
+				<Typography.Link className={styles.Link}>
 					<img src={Search} alt="" width={17} />
 					<p>Search</p>
 				</Typography.Link>
-				<Typography.Link href="#API" className={styles.Link}>
+				<Typography.Link className={styles.Link}>
 					<img src={Cart} alt="" width={21} />
 					<p>Cart(0)</p>
 				</Typography.Link>

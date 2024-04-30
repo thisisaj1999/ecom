@@ -44,7 +44,7 @@
 	}
 
 	& .NewArrivalsContainer {
-		padding: 4rem 0;
+		padding: 4rem 0 3rem 0;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
@@ -68,7 +68,7 @@
 			justify-content: center;
 			
 			& .CardContainer {
-				padding: 2rem 4rem;
+				padding: 2rem 0;
 				width: 90%;
 				display: grid;
 				grid-template-columns: repeat(4, 1fr);
@@ -92,5 +92,72 @@
 				box-shadow: rgba(0, 0, 0, 0.25) -2px -2px 2.6px;
 			}
 		}
+	}
+
+	& .SaleContainer{
+		padding: 4rem;
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		height: 100%;
+
+		& .SaleImageContainer{
+			width: 65%;
+			& img{
+				border-radius: 12px;
+				width: 100%;
+			}
+		}
+		
+		& .SaleContentContainer{
+			width: 35%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: space-between;
+
+			& .SaleContentHeading{
+				font-size: 3rem;
+				font-weight: 500;
+				line-height: 3.5rem;
+			}
+
+			& .SaleContentSubHeading{
+				color: gray;
+				font-size: 18px;
+				line-height: 1.8rem;
+			}
+
+			& .SeeOnMapsBtn {
+				width: 10rem;
+				height: 2.5rem;
+				font-size: 16px;
+				border-radius: 50px;
+				border: none;
+				cursor: pointer;
+				background-color: #000;
+				color: white;
+				box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 2.6px;
+	
+				&:active {
+					box-shadow: rgba(0, 0, 0, 0.25) -2px -2px 2.6px;
+				}
+			}
+
+			& .SaleFlashBatch{
+				& .SaleFlashBatchHeading{
+					font-size: 1rem;
+					font-weight: 600;
+				}
+				& .SaleFlashBatchPercentage{
+					font-size: 6rem;
+					font-weight: 500;
+					line-height: 7rem;
+				}
+			}
+		}
+
+
 	}
 }

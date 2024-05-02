@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./Home.module.scss";
 import { useGlobalStore } from "../../utils/store";
 import { useLocation } from "react-router-dom";

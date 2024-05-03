@@ -9,6 +9,7 @@ import { useAuth } from "../../utils/services/authentication";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
 import Sale from "../../assets/sale.jpg";
+import Newsletter from "../../assets/newsletter.jpeg";
 
 // Feature Collection
 import Accesories from "../../assets/accesories.jpg";
@@ -17,6 +18,22 @@ import Bottoms from "../../assets/bottoms.jpg";
 import Footwear from "../../assets/footwear.jpg";
 import Headwear from "../../assets/headwear.jpg";
 import Jacket from "../../assets/jacket.jpg";
+
+// ANTD
+import type { FormProps } from "antd";
+import { Button, Form, Input } from "antd";
+
+type FieldType = {
+	email?: string;
+};
+
+const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
+	console.log("Success:", values);
+};
+
+const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (errorInfo) => {
+	console.log("Failed:", errorInfo);
+};
 
 const index: React.FC = () => {
 	const Auth = useAuth();
@@ -283,6 +300,48 @@ const index: React.FC = () => {
 								Discover
 							</button>
 						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Newsletter */}
+			<section className={styles.NewsletterContainer}>
+				<div className={styles.NewsletterImg}>
+					<img src={Newsletter} />
+					<div className={styles.NewsletterContent}>
+						<p className={styles.NewsletterContentHeading}>
+							Sign Up to Our Newsletter
+						</p>
+						<p className={styles.NewsletterContentSubHeading}>
+							Get the Latest Beauty Secrets and Trends, Sign Up
+							for Our Newsletter and Stay Informed About All
+							Things Beauty
+						</p>
+
+						{/* Form */}
+
+						<Form
+							className={styles.NewsletterFrom}
+							initialValues={{ remember: true }}
+							onFinish={onFinish}
+							onFinishFailed={onFinishFailed}
+							autoComplete="off"
+						>
+							<Form.Item<FieldType>
+								name="email"
+								className={styles.NewsLetterInput}
+							>
+								<Input />
+							</Form.Item>
+
+							<button
+								className={styles.SubmitBtn}
+								type="submit"
+							>
+								Submit
+							</button>
+						</Form>
+
 					</div>
 				</div>
 			</section>

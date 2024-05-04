@@ -337,7 +337,6 @@ const index: React.FC = () => {
 						>
 							<Form.Item<FieldType>
 								name="email"
-								className={styles.NewsLetterInput}
 							>
 								<Input />
 							</Form.Item>

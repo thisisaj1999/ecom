@@ -1,0 +1,50 @@
+.NewArrivalsContainer {
+	padding: 4rem 0 3rem 0;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	& .NewArrivalsHeading {
+		font-size: 3rem;
+		font-weight: 500;
+	}
+
+	& .NewArrivalsSubHeading {
+		color: gray;
+		font-size: 18px;
+		text-align: center;
+		max-width: 60%;
+		line-height: 1.8rem;
+	}
+
+	& .CardContainerFlex {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+
+		& .CardContainer {
+			padding: 2rem 0;
+			width: 90%;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			row-gap: 1rem;
+			justify-items: center;
+		}
+	}
+
+	& .NewArrivalsSeeAllBtn {
+		width: 10rem;
+		height: 2.5rem;
+		font-size: 16px;
+		border-radius: 50px;
+		border: none;
+		cursor: pointer;
+		background-color: #000;
+		color: white;
+		box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 2.6px;
+
+		&:active {
+			box-shadow: rgba(0, 0, 0, 0.25) -2px -2px 2.6px;
+		}
+	}
+}

@@ -1,0 +1,42 @@
+.HomeContainer {
+	min-height: 100vh;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+
+	& .HeroHeading {
+		justify-self: center;
+		font-size: 6rem;
+		color: white;
+		font-weight: 600;
+		font-style: italic;
+	}
+
+	& .HeroSubHeading {
+		color: white;
+		font-size: 18px;
+		text-align: center;
+		max-width: 60%;
+		line-height: 1.8rem;
+	}
+
+	& .HeroShopNowBtn {
+		position: absolute;
+		bottom: 3rem;
+		width: 10rem;
+		height: 2.5rem;
+		font-size: 16px;
+		border-radius: 50px;
+		border: none;
+		cursor: pointer;
+		box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 2.6px;
+
+		&:active {
+			box-shadow: rgba(0, 0, 0, 0.25) -2px -2px 2.6px;
+		}
+	}
+}

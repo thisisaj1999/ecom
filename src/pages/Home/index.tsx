@@ -29,7 +29,7 @@ import Logo from "../../assets/logo.svg";
 
 // ANTD
 import type { FormProps } from "antd";
-import { Button, Form, Input } from "antd";
+import { Form, Input } from "antd";
 
 type FieldType = {
 	email?: string;

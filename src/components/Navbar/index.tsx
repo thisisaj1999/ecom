@@ -10,10 +10,19 @@ import Search from "../../assets/search.svg";
 import Cart from "../../assets/cart.svg";
 import Logo from "../../assets/logo.svg";
 
+// State
+import { useGlobalStore } from "../../utils/store";
+
 const index: React.FC = () => {
 
 	const Auth = useAuth()
 	const navigate = useNavigate();
+
+	const Update = {
+		Global: {
+			isDrawerOpen: useGlobalStore((State) => State.setIsDrawerOpen),
+		},
+	};
 
 	const SignOutBtn = async () => {
     await Auth.SignOut();
@@ -22,6 +31,10 @@ const index: React.FC = () => {
   const SignInBtn = async () => {
 		navigate('/login')
 	};
+
+	const handleCartClick = () => {
+		Update.Global.isDrawerOpen(true)
+	}
 
 	return (
 		<div className={styles.NavbarMain}>
@@ -52,7 +65,7 @@ const index: React.FC = () => {
 					<img src={Search} alt="" width={17} />
 					<p>Search</p>
 				</Typography.Link>
-				<Typography.Link className={styles.Link}>
+				<Typography.Link className={styles.Link} onClick={handleCartClick}>
 					<img src={Cart} alt="" width={21} />
 					<p>Cart(0)</p>
 				</Typography.Link>

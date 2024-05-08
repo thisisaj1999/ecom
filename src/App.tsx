@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import RoutesConfig from "./routes/routesConfig";
 import Redirect from "./routes/redirect";
 import style from './App.module.scss'
+import Drawer from './components/Drawer'
 
 const App: React.FC = () => {
 	const AllRoutes = RoutesConfig();
@@ -23,6 +24,7 @@ const App: React.FC = () => {
 				{/* WildCard Routes */}
 				<Route path="*" element={<Redirect />} />
 			</Routes>
+			<Drawer/>
 		</div>
 	);
 };

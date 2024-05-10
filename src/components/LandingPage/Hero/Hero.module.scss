@@ -48,3 +48,35 @@
 		}
 	}
 }
+
+@media (max-width: 1024px) {
+  .HomeContainer {
+    & .HeroContentMain {
+			gap: 0.5rem;
+      & .HeroHeading {
+        font-size: 4rem;
+      }
+
+      & .HeroSubHeading {
+				font-size: 16px;
+        max-width: 80%;
+      }
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .HomeContainer {
+    & .HeroContentMain {
+			gap: 0.5rem;
+      & .HeroHeading {
+        font-size: 3rem;
+      }
+
+      & .HeroSubHeading {
+				font-size: 14px;
+        max-width: 80%;
+      }
+    }
+  }
+}

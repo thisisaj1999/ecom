@@ -22,7 +22,8 @@ const index: React.FC = () => {
 		filter: "brightness(100%)",
 		backgroundImage: `url(${homepageImg})`,
 		backgroundRepeat: "no-repeat",
-		backgroundSize: "cover"
+		backgroundSize: "cover",
+		backgroundPosition: "center",
 	};
 
 	const handleShopNowBtn = (e: any) => {

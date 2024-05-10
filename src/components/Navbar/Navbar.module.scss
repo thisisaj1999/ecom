@@ -7,98 +7,73 @@
 	padding: 1.2rem 2rem;
 	justify-content: space-between;
 	filter: brightness(100%);
-}
 
-.NavbarMenuContainer {
-	display: flex;
-	align-items: center;
-	gap: 2rem;
-}
+	& .NavbarMenuContainer {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
 
-.Link{
-	color: white !important;
-	font-weight: 300;
-	text-decoration: none;
-	font-size: 16px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.3rem;
-	& p {
-		margin: 0;
+		& .Link {
+			color: white !important;
+			font-weight: 300;
+			text-decoration: none;
+			font-size: 16px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.3rem;
+			transform: translateX(0);
+			opacity: 1;
+			transition: transform 0.3s ease, opacity 0.3s ease;
+
+			&:hover {
+				font-weight: 500;
+			}
+
+			& p {
+				margin: 0;
+			}
+		}
 	}
-	
 
-	&:hover{
-		font-weight: 500;
+	& .MenuStyles {
+		display: none;
+		transform: translateX(-100%);
+		opacity: 0;
+		transition: transform 0.3s ease, opacity 0.3s ease;
 	}
 }
 
-.UserAvatar{
-    cursor: pointer;
-}
+@media (max-width: 820px) {
+	.NavbarMain {
+		& .NavbarMenuContainer {
+			& .Link {
+				transform: translateX(100%);
+				opacity: 0;
+			}
 
-.search {
-    display: table;
-    input {
-        background: none;
-        border: none;
-        outline: none;
-        width: 28px;
-        min-width: 0;
-        padding: 0;
-        z-index: 1;
-        position: relative;
-        line-height: 18px;
-        margin: 5px 0;
-        font-size: 14px;
-        -webkit-appearance: none;
-        font-family: 'Mukta Malar';
-        transition: all .6s ease;
-        cursor: pointer;
-        color: #fff;
-        & + div {
-            position: relative;
-            height: 28px;
-            width: 100%;
-            margin: -28px 0 0 0;
-            svg {
-                display: block;
-                position: absolute;
-                height: 22px;
-                width: 160px;
-                right: 0;
-                top: 0;
-                fill: none;
-                stroke: #fff;
-                stroke-width: 1.5px;
-                stroke-dashoffset: 212.908 + 59;
-                stroke-dasharray: 59 212.908;
-                transition: all .6s ease;
+            &.hidden {
+                display: none;
             }
-        }
-        &:not(:placeholder-shown),
-        &:focus {
-            width: 160px;
-            padding: 0 4px;
-            cursor: text;
-            &+ div {
-                svg {
-                    stroke-dasharray: 150 212.908;
-                    stroke-dashoffset: 300;
-                }
-            }
-        }
-    }
-}
+		}
 
-.dribbble {
-	position: fixed;
-	display: block;
-	right: 24px;
-	bottom: 24px;
-	img {
+		& .MenuStyles {
 			display: block;
-			width: 76px;
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+}
+
+@media (max-width: 615px) {
+	.NavbarMain {
+		padding: 1rem 2rem 1rem 1rem;
+		height: 5rem;
+	}
+}
+
+@media (max-width: 490px) {
+	.NavbarMain {
+		width: 100%;
 	}
 }

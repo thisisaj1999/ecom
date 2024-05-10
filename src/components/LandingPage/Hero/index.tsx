@@ -22,8 +22,7 @@ const index: React.FC = () => {
 		filter: "brightness(100%)",
 		backgroundImage: `url(${homepageImg})`,
 		backgroundRepeat: "no-repeat",
-		backgroundSize: "cover",
-		width: "100%",
+		backgroundSize: "cover"
 	};
 
 	const handleShopNowBtn = (e: any) => {
@@ -41,13 +40,15 @@ const index: React.FC = () => {
 	return (
 		<section className={styles.HomeContainer} style={backgroundImageStyles}>
 			<Navbar />
-			<h1 className={styles.HeroHeading}>Bolt Sport Project</h1>
-			<p className={styles.HeroSubHeading}>
-				Introducing our latest collection, designed specifically for
-				outdoor enthusiasts. Features a range of high-performance
-				outwear with a range of bold and vibrant colors and patterns to
-				choose from.
-			</p>
+			<div className={styles.HeroContentMain}>
+				<h1 className={styles.HeroHeading}>Bolt Sport Project</h1>
+				<p className={styles.HeroSubHeading}>
+					Introducing our latest collection, designed specifically for
+					outdoor enthusiasts. Features a range of high-performance
+					outwear with a range of bold and vibrant colors and patterns to
+					choose from.
+				</p>
+			</div>
 			<button
 				className={styles.HeroShopNowBtn}
 				onClick={(e) => handleShopNowBtn(e)}

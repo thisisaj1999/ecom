@@ -42,7 +42,7 @@ const index: React.FC = () => {
 						<p className={styles.CardProductPrice}>$ 12.00</p>
 					</div>
 					<div
-						className={styles.BagBtn}
+						className={styles.addToCartBtn}
 						onClick={addToCartHandler}
 						style={{
 							backgroundColor: addToCart ? "#000" : "#fff",

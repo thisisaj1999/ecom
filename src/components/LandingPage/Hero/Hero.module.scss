@@ -80,3 +80,33 @@
     }
   }
 }
+
+@media (max-width: 460px) {
+	.HomeContainer {
+    & .HeroContentMain {
+      & .HeroHeading {
+        font-size: 2.4rem;
+      }
+
+      & .HeroSubHeading {
+				font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+	.HomeContainer {
+    & .HeroContentMain {
+      & .HeroHeading {
+        font-size: 2rem;
+      }
+
+      & .HeroSubHeading {
+				font-size: 12px;
+				line-height: 1.6rem;
+				max-width: 90%;
+      }
+    }
+  }
+}

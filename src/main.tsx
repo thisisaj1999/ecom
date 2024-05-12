@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 			<BrowserRouter>
 				<SnackbarProvider
 					maxSnack={1}
-					autoHideDuration={5000}
+					autoHideDuration={2000}
 					preventDuplicate
 					anchorOrigin={{
 						vertical: "top",

@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './MainPage.module.scss'
 import { useGlobalStore } from '../../utils/store';
+import { useNavigate, useParams} from 'react-router-dom';
 
-const index = () => {
+
+const index: React.FC = () => {
+	const { slug } = useParams()
+	const navigate = useNavigate()
 
 	const State = {
 		Global: {
@@ -10,7 +14,20 @@ const index = () => {
 		},
 	};
 
-  console.log(State.Global.currentPage)
+	const Update = {
+		Global: {
+			currentPage: useGlobalStore((State) => State.setCurrentPage),
+		},
+	};
+
+	useEffect(() => {
+		if(slug){
+			Update.Global.currentPage(slug)
+		}else{
+			Update.Global.currentPage('Dashboard')
+			navigate('/dashboard')
+		}
+	},[,slug])
 
   return (
     <div>{State.Global.currentPage}</div>

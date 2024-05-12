@@ -1,28 +1,21 @@
 .SidebarMain{
   height: 100%;
-  border-right: 2px solid gray;
   display: flex;
-  align-items: center;
   justify-content: center;
+  
+  & :global(.ant-menu){
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
   & .MenuMain{
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1rem;
-    & .MenuOpt{
-      list-style-type: none;
-      height: 3rem;
-      width: 100%;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: color .3s ease-in-out;
-      &:hover{
-        color: gray;
-        transition: color .3s ease-in-out;
-      }
-    }
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    margin: 4px;
+    padding-left: 8px;
   }
 }

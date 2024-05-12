@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 // Image
 import User from "../../assets/user.svg";
-import Search from "../../assets/search.svg";
 import Cart from "../../assets/cart.svg";
 import Logo from "../../assets/logo.svg";
 import Menu from '../../assets/menu.svg'

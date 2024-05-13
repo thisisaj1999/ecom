@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 import styles from './MainPage.module.scss';
 
 // import required modules
-import { Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 export default function App() {
   return (
@@ -20,8 +20,12 @@ export default function App() {
 				pagination={{
           clickable: true,
         }}
+				autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         navigation={true}
-        modules={[Pagination, Navigation]}
+        modules={[Autoplay, Pagination, Navigation]}
         className={styles.DashboardSwiper}
       >
         <SwiperSlide>Slide 1</SwiperSlide>

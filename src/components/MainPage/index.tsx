@@ -1,9 +1,16 @@
 import React, { useEffect } from 'react'
-import { useGlobalStore } from '../../utils/store';
+
+// Hooks
 import { useNavigate, useParams} from 'react-router-dom';
 
+// State
+import { useGlobalStore } from '../../utils/store';
+
+// Other functions
+import { slugToWords } from '../../utils/services/other';
 
 const index: React.FC = () => {
+	
 	const { slug } = useParams()
 	const navigate = useNavigate()
 
@@ -29,7 +36,7 @@ const index: React.FC = () => {
 	},[,slug])
 
   return (
-    <div>{State.Global.currentPage}</div>
+    <div>{slugToWords(State.Global.currentPage)}</div>
   )
 }
 

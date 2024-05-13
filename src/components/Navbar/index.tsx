@@ -1,6 +1,10 @@
 import React from "react";
-import { Typography } from "antd";
 import styles from "./Navbar.module.scss";
+
+// ANTD
+import { Typography } from "antd";
+
+// Hooks
 import { useAuth } from "../../utils/services/authentication";
 import { useNavigate } from "react-router-dom";
 

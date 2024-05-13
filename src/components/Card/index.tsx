@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Card.module.scss";
+
+// Images
 import Bag from "../../assets/product/bag.webp";
 
 const index: React.FC = () => {

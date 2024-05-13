@@ -1,9 +1,13 @@
 import React from "react";
+import style from './App.module.scss'
+
+// Components or Layout
+import Drawer from './components/Drawer'
+
+// Routes
 import { Routes, Route } from "react-router-dom";
 import RoutesConfig from "./routes/routesConfig";
 import Redirect from "./routes/redirect";
-import style from './App.module.scss'
-import Drawer from './components/Drawer'
 
 const App: React.FC = () => {
 	const AllRoutes = RoutesConfig();

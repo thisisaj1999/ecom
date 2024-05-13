@@ -8,16 +8,17 @@ import { Menu } from "antd";
 import Options from './Options'
 
 // Hooks
-import { useGlobalStore } from "../../utils/store";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../utils/services/authentication";
 
-// Other functions
-import { pathSlugMaker, wordsToSlug } from "../../utils/services/other";
+// State
+import { useGlobalStore } from "../../utils/store";
 
 // Types
 import type { MenuProps } from "antd";
 
+// Other functions
+import { pathSlugMaker, wordsToSlug } from "../../utils/services/other";
 
 const index: React.FC = () => {
 

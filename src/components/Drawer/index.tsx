@@ -1,5 +1,9 @@
 import React from 'react';
+
+// ANTD
 import { Drawer } from 'antd';
+
+// Hooks
 import { useGlobalStore } from '../../utils/store';
 
 const index: React.FC = () => {

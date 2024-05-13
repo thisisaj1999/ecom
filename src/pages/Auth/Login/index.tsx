@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { Button, Form, Input, Tooltip, Typography, Divider } from "antd";
 import styles from "./Login.module.scss";
-import { getRandomColor } from "../../../utils/services/other";
+
+// ANTD
+import { Button, Form, Input, Tooltip, Typography, Divider } from "antd";
+
+// Hooks
 import { useNavigate, useLocation } from 'react-router-dom'
-import GoogleLogo from "../../../assets/google-logo.svg";
-import { useGlobalStore } from "../../../utils/store";
-import { ILoginDetails } from "../../../contracts/ILoginDetails";
 import { useAuth } from '../../../utils/services/authentication';
 import { useSnackbar } from 'notistack';
 
+// Images
+import GoogleLogo from "../../../assets/google-logo.svg";
+
+// State
+import { useGlobalStore } from "../../../utils/store";
+
+// Types
+import { ILoginDetails } from "../../../contracts/ILoginDetails";
+
+// Other functions
+import { getRandomColor } from "../../../utils/services/other";
+
 const index:React.FC = () => {
+
   const Auth = useAuth();
   const { enqueueSnackbar } = useSnackbar();
-
   const location = useLocation()
   const navigate = useNavigate()
 

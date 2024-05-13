@@ -1,10 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./Home.module.scss";
 
-// Hooks
-import { useGlobalStore } from "../../utils/store";
-import { useLocation } from "react-router-dom";
-
 // Components or Layout
 import Hero from "../../components/LandingPage/Hero";
 import NewArrivals from "../../components/LandingPage/NewArrivals";
@@ -12,6 +8,12 @@ import Sale from "../../components/LandingPage/Sale";
 import FeatureCollections from "../../components/LandingPage/FeatureCollections";
 import Newsletter from "../../components/LandingPage/Newsletter";
 import Footer from "../../components/LandingPage/Footer";
+
+// Hooks
+import { useLocation } from "react-router-dom";
+
+// State
+import { useGlobalStore } from "../../utils/store";
 
 const index: React.FC = () => {
 	const location = useLocation();

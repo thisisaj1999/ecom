@@ -1,43 +1,39 @@
-import React, { useEffect } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Hooks
-import { useNavigate, useParams} from 'react-router-dom';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
-// State
-import { useGlobalStore } from '../../utils/store';
+import styles from './MainPage.module.scss';
 
-// Other functions
-import { slugToWords } from '../../utils/services/other';
+// import required modules
+import { Pagination, Navigation } from 'swiper/modules';
 
-const index: React.FC = () => {
-	
-	const { slug } = useParams()
-	const navigate = useNavigate()
-
-	const State = {
-		Global: {
-			currentPage: useGlobalStore((State) => State.currentPage),
-		},
-	};
-
-	const Update = {
-		Global: {
-			currentPage: useGlobalStore((State) => State.setCurrentPage),
-		},
-	};
-
-	useEffect(() => {
-		if(slug){
-			Update.Global.currentPage(slug)
-		}else{
-			Update.Global.currentPage('Dashboard')
-			navigate('/dashboard')
-		}
-	},[,slug])
-
+export default function App() {
   return (
-    <div>{slugToWords(State.Global.currentPage)}</div>
-  )
+    <div className={styles.DashboardMain}>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        loop={true}
+				pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className={styles.DashboardSwiper}
+      >
+        <SwiperSlide>Slide 1</SwiperSlide>
+        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide>Slide 5</SwiperSlide>
+        <SwiperSlide>Slide 6</SwiperSlide>
+        <SwiperSlide>Slide 7</SwiperSlide>
+        <SwiperSlide>Slide 8</SwiperSlide>
+        <SwiperSlide>Slide 9</SwiperSlide>
+      </Swiper>
+    </div>
+  );
 }
-
-export default index

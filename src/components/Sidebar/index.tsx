@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./Sidebar.module.scss";
 
 import User from "../../assets/menu/user.svg";

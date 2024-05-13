@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import styles from './MainPage.module.scss'
 import { useGlobalStore } from '../../utils/store';
 import { useNavigate, useParams} from 'react-router-dom';
 

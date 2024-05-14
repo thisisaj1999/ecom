@@ -3,32 +3,60 @@
   min-height: 100vh;
   height: 100%;
 
-  & :global(.swiper) {
-    width: 100%;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
+  & .DashboardMainHeading{
+    padding: 0.5rem;
+    font-size: 3rem;
+    font-weight: 500;
+  }
 
-    & :global(.swiper-slide) {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-    
-      /* Center slide text vertically */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    
-      & img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+  & .DashboardSwiper{
+    & :global(.swiper) {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0.5rem;
+  
+      & :global(.swiper-slide) {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      
+        & img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
     }
   }
-}
 
-.DashboardSwiper{
-  margin:0;
+  & .DashboardCarousel{
+    padding: 0.5rem;
+    height: 25rem;
+    & :global(.swiper) {
+      width: 100%;
+      height: 100%;
+
+      & :global(.swiper-slide) {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      
+        & img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
 }

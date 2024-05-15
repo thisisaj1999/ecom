@@ -40,11 +40,13 @@ const index: React.FC = () => {
   return (
     <>
       <Modal
+        centered
         title={State.Modal.modalName}
         open={State.Modal.isOpen}
         onOk={handleOk}
         confirmLoading={confirmLoading}
         onCancel={handleCancel}
+        width={1000}
       >
         <p>{modalText}</p>
       </Modal>

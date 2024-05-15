@@ -41,6 +41,7 @@ const index: React.FC = () => {
           direction={"vertical"}
           loop={true}
 					grabCursor={true}
+					speed={1200}
 					autoplay={{
 						delay: 2500,
 						disableOnInteraction: false,
@@ -68,6 +69,7 @@ const index: React.FC = () => {
 					slidesPerView={5}
 					spaceBetween={25}
 					freeMode={true}
+					speed={1000}
 					loop={true}
 					grabCursor={true}
 					autoplay={{
@@ -113,6 +115,7 @@ const index: React.FC = () => {
 				<Swiper
 					slidesPerView={5}
 					spaceBetween={25}
+					speed={1000}
 					freeMode={true}
 					loop={true}
 					grabCursor={true}

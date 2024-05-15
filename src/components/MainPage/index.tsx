@@ -61,7 +61,53 @@ const index: React.FC = () => {
         </Swiper>
       </div>
 			<h1 className={styles.DashboardMainHeading}>
-				{slugToWords(State.Global.currentPage)}
+				{State.Global.currentPage !== 'dashboard' ? slugToWords(State.Global.currentPage) : 'Popular'}
+			</h1>
+			<div className={styles.DashboardSwiper}>
+				<Swiper
+					slidesPerView={5}
+					spaceBetween={25}
+					freeMode={true}
+					loop={true}
+					grabCursor={true}
+					autoplay={{
+						delay: 4500,
+						disableOnInteraction: false,
+					}}
+					// navigation={true}
+					modules={[Autoplay, FreeMode, Navigation]}
+				>
+					<SwiperSlide className={styles.DashboardSwiperCards}>
+						<Card />
+					</SwiperSlide>
+					<SwiperSlide className={styles.DashboardSwiperCards}>
+						<Card />
+					</SwiperSlide>
+					<SwiperSlide className={styles.DashboardSwiperCards}>
+						<Card />
+					</SwiperSlide>
+					<SwiperSlide className={styles.DashboardSwiperCards}>
+						<Card />
+					</SwiperSlide>
+					<SwiperSlide className={styles.DashboardSwiperCards}>
+						<Card />
+					</SwiperSlide>
+					<SwiperSlide className={styles.DashboardSwiperCards}>
+						<Card />
+					</SwiperSlide>
+					<SwiperSlide className={styles.DashboardSwiperCards}>
+						<Card />
+					</SwiperSlide>
+					<SwiperSlide className={styles.DashboardSwiperCards}>
+						<Card />
+					</SwiperSlide>
+					<SwiperSlide className={styles.DashboardSwiperCards}>
+						<Card />
+					</SwiperSlide>
+				</Swiper>
+			</div>
+			<h1 className={styles.DashboardMainHeading}>
+				{State.Global.currentPage !== 'dashboard' ? slugToWords(State.Global.currentPage) : 'Best Sellers'}
 			</h1>
 			<div className={styles.DashboardSwiper}>
 				<Swiper

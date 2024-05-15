@@ -13,7 +13,6 @@ import Hiking from "../../assets/menu/hiking.svg";
 import Teams from "../../assets/menu/teams.svg";
 import Skates from "../../assets/menu/skates.svg";
 import Settings from "../../assets/menu/settings.svg";
-import Brush from "../../assets/menu/brush.svg";
 import Logout from "../../assets/menu/logout.svg";
 
 // Types
@@ -184,11 +183,6 @@ const items: MenuItem[] = [
 						key: "profile",
 						icon: <img src={User} alt="" width={22} />,
 						label: "Profile",
-					},
-					{
-						key: "theme",
-						icon: <img src={Brush} alt="" width={22} />,
-						label: "Theme",
 					},
 					{
 						key: "logout",

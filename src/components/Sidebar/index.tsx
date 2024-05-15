@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../utils/services/authentication";
 
 // State
-import { useGlobalStore } from "../../utils/store";
+import { useGlobalStore, useModalStore } from "../../utils/store";
 
 // Types
 import type { MenuProps } from "antd";
@@ -30,10 +30,14 @@ const index: React.FC = () => {
 		Global: {
 			currentPage: useGlobalStore((State) => State.setCurrentPage),
 		},
+		Modal: {
+			isOpen: useModalStore((State) => State.setIsOpen),
+			modalName: useModalStore((State) => State.setModalName),
+		},
 	};
 
 	const onClick: MenuProps["onClick"] = async (e) => {
-		if(e.key !== 'profile' && e.key !== 'logout' && e.key !== 'theme'){
+		if(e.key !== 'profile' && e.key !== 'logout' && e.key !== 'cart'){
 			const pathSlug = pathSlugMaker(e.keyPath);
 			const slug = wordsToSlug(e.key)
 			Update.Global.currentPage(slug)
@@ -41,6 +45,16 @@ const index: React.FC = () => {
 		}
 		if(e.key === 'logout'){
 			await Auth.SignOut();
+		}
+
+		if(e.key === 'cart'){
+			Update.Modal.isOpen(true)
+			Update.Modal.modalName("Cart")
+		}
+	
+		if(e.key === 'profile'){
+			Update.Modal.isOpen(true)
+			Update.Modal.modalName("Profile")
 		}
 	};
 

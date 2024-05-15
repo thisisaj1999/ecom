@@ -4,7 +4,7 @@ import styles from "./Dashboard.module.scss";
 // Components or Layouts
 import Sidebar from "../../components/Sidebar";
 import MainPage from "../../components/MainPage";
-
+import Modal from '../../components/Modal'
 // Hooks
 import { useLocation } from "react-router-dom";
 
@@ -35,6 +35,7 @@ const index: React.FC = () => {
 			{/* Pages */}
 			<div className={styles.PagesContainer}>
 				<MainPage />
+				<Modal />
 			</div>
 		</div>
 	);

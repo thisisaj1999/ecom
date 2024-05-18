@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useGlobalStore } from "../../utils/store";
+import { useGlobalStore, useDashboardStore } from "../../utils/store";
 
 // Import Swiper styles
 import "swiper/css";
@@ -27,12 +27,21 @@ import Img10 from "../../assets/carousel/img10.avif";
 import { Autoplay, FreeMode, Navigation } from "swiper/modules";
 import { slugToWords } from "../../utils/services/other";
 
+// Types
+import { IItemsData } from "../../contracts/IItemsData";
+
+
 const index: React.FC = () => {
 	const State = {
 		Global: {
 			currentPage: useGlobalStore((State) => State.currentPage),
 		},
+		Dashboard: {
+			itemsData: useDashboardStore((State) => State.itemsData)
+		}
 	};
+
+	console.log("State.Dashboard.itemsData", State.Dashboard.itemsData)
 
 	return (
 		<div className={styles.DashboardMain}>
@@ -79,33 +88,11 @@ const index: React.FC = () => {
 					// navigation={true}
 					modules={[Autoplay, FreeMode, Navigation]}
 				>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
+					{State.Dashboard.itemsData.map((item:IItemsData) => (
+						<SwiperSlide className={styles.DashboardSwiperCards}>
+							<Card data={item}/>
+						</SwiperSlide>
+					))}
 				</Swiper>
 			</div>
 			<h1 className={styles.DashboardMainHeading}>
@@ -126,33 +113,11 @@ const index: React.FC = () => {
 					// navigation={true}
 					modules={[Autoplay, FreeMode, Navigation]}
 				>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
-					<SwiperSlide className={styles.DashboardSwiperCards}>
-						<Card />
-					</SwiperSlide>
+					{State.Dashboard.itemsData.map((item:IItemsData) => (
+						<SwiperSlide className={styles.DashboardSwiperCards}>
+							<Card data={item}/>
+						</SwiperSlide>
+					))}
 				</Swiper>
 			</div>
 		</div>

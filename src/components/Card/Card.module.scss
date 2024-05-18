@@ -47,6 +47,31 @@
 		align-items: center;
 		width: 100%;
 
+		& div {
+			display: flex;
+			align-items: start;
+			flex-direction: column;
+			& .CardProductName,
+			& .CardProductPrice {
+				max-width: 14rem;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				font-size: 16px;
+				cursor: pointer;
+			}
+
+			& .CardProductName {
+				color: black;
+				transition: color 0.3s ease-out;
+
+				&:hover {
+					color: blue;
+					transition: color 0.3s ease-in;
+				}
+			}
+		}
+
 		& .addToCartBtn {
 			height: 2.5rem;
 			width: 2.5rem;
@@ -70,11 +95,56 @@
 	}
 }
 
+
+@media (max-width: 1800px) {
+	.Card {
+		& .CardContent {
+			& div {
+				& .CardProductName,
+				& .CardProductPrice {
+					max-width: 12rem;
+				}
+			}
+
+			& .addToCartBtn {
+				height: 2.2rem;
+				width: 2.2rem;
+			}
+		}
+	}
+}
+
+
+@media (max-width: 1650px) {
+	.Card {
+		& .CardContent {
+			& div {
+				& .CardProductName,
+				& .CardProductPrice {
+					max-width: 10rem;
+					font-size: 15px;
+				}
+			}
+		}
+	}
+}
+
+
 @media (max-width: 1440px) {
 	.Card {
 		& .LikeBtn {
-			top: 10px;
-			right: 10px;
+			top: 5px;
+			right: 5px;
+		}
+
+		& .CardContent {
+			& div {
+				& .CardProductName,
+				& .CardProductPrice {
+					max-width: 8rem;
+					font-size: 13px;
+				}
+			}
 		}
 	}
 }
@@ -85,8 +155,18 @@
 			top: 5px;
 			right: 5px;
 		}
+
+		& .CardContent {
+			& div {
+				& .CardProductName,
+				& .CardProductPrice {
+					max-width: 7rem;
+				}
+			}
+		}
 	}
 }
+
 
 @media (max-width: 768px) {
 	.Card {

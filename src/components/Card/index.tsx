@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import styles from "./Card.module.scss";
 
-// Images
-import Bag from "../../assets/product/bag.webp";
 
-const index: React.FC = () => {
+// Types
+import { IItemsData } from "../../contracts/IItemsData";
+
+interface ItemProps {
+  data: IItemsData;
+}
+
+const index: React.FC<ItemProps> = ({ data }) => {
 	const [isLiked, setIsLiked] = useState(false);
 	const [addToCart, setAddToCart] = useState(false);
 
@@ -19,7 +24,7 @@ const index: React.FC = () => {
 	return (
 		<div className={styles.CardMain}>
 			<div className={styles.Card}>
-				<img src={Bag} alt="" className={styles.ProductImg} />
+				<img src={data?.images[0]} alt="" className={styles.ProductImg} />
 				<div className={styles.LikeBtn}>
 					<svg
 						className={styles.Like}
@@ -40,8 +45,8 @@ const index: React.FC = () => {
 				</div>
 				<div className={styles.CardContent}>
 					<div>
-						<p className={styles.CardProductName}>Jaq Bag</p>
-						<p className={styles.CardProductPrice}>$ 12.00</p>
+						<p className={styles.CardProductName}>{data?.title}</p>
+						<p className={styles.CardProductPrice}>{`$ ${data?.price}`}</p>
 					</div>
 					<div
 						className={styles.addToCartBtn}

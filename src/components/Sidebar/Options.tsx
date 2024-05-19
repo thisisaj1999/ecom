@@ -1,5 +1,9 @@
 import styles from "./Sidebar.module.scss";
 
+// ANTD
+import { ClockCircleOutlined } from '@ant-design/icons';
+import { Badge } from 'antd';
+
 // Images
 import User from "../../assets/menu/user.svg";
 import Cart from "../../assets/menu/cart.svg";
@@ -167,7 +171,7 @@ const items: MenuItem[] = [
 			{
 				key: "cart",
 				icon: <img src={Cart} alt="" width={22} />,
-				label: "Cart",
+				label: <div className={styles.CartMenuStyle}><p>Cart</p><Badge count={3} color="green"/></div>,
 			},
 			{
 				key: "order-history",

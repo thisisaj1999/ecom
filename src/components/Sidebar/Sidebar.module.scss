@@ -18,4 +18,13 @@
     margin: 4px;
     padding-left: 8px;
   }
+
+  & .CartMenuStyle{
+    display: flex;
+    justify-content: space-between;
+
+    & :global(.ant-badge){
+      align-self: center;
+    }
+  }
 }

@@ -1,13 +1,5 @@
 import { create } from 'zustand'
-
-interface IGlobalSlice {
-  isSidebarCollapsed : boolean,
-  currentPage: string,
-  isDrawerOpen: boolean,
-  setIsSidebarCollapsed : (isSidebarCollapsed: boolean) => void, 
-  setCurrentPage : (currentPage: string) => void, 
-  setIsDrawerOpen : (isDrawerOpen: boolean) => void, 
-}
+import { IGlobalSlice } from '../../../contracts/IGlobalSlice'
 
 export const useGlobalStore = create<IGlobalSlice>()((set) => ({
   isSidebarCollapsed : true,

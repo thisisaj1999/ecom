@@ -1,11 +1,5 @@
 import { create } from 'zustand'
-
-interface IModalSlice {
-  isOpen : boolean,
-  modalName: string,
-  setIsOpen : (isOpen: boolean) => void, 
-  setModalName : (modalName: string) => void, 
-}
+import { IModalSlice } from '../../../contracts/IModalSlice'
 
 export const useModalStore = create<IModalSlice>()((set) => ({
   isOpen : false,

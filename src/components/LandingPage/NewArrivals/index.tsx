@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./NewArrivals.module.scss";
+import { useDashboardStore } from "../../../utils/store";
 
 // Components or Layouts
 import Card from "../../Card";
@@ -9,11 +10,19 @@ import { useAuth } from "../../../utils/services/authentication";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
 
+// Types
+import { IItemsData } from "../../../contracts/IItemsData";
+
 const index: React.FC = () => {
-	
 	const Auth = useAuth();
 	const navigate = useNavigate();
 	const { enqueueSnackbar } = useSnackbar();
+
+	const State = {
+		Dashboard: {
+			itemsData: useDashboardStore((State) => State.itemsData),
+		},
+	};
 
 	const handleSeeAllBtn = (e: any) => {
 		e.preventDefault();
@@ -36,14 +45,9 @@ const index: React.FC = () => {
 			</p>
 			<div className={styles.CardContainerFlex}>
 				<div className={styles.CardContainer}>
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
+					{State.Dashboard.itemsData.slice(0,8).map((item: IItemsData) => (
+						<Card data={item} />
+					))}
 				</div>
 			</div>
 			<button

@@ -1,4 +1,4 @@
-.DashboardMain{
+.DashboardMainPage{
   padding: 2rem;
   min-height: 100vh;
   height: 100%;
@@ -57,6 +57,16 @@
           border-radius: 10px;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+	.DashboardMainPage{
+    padding: 1rem;
+  
+    & .DashboardCarousel{
+      height: 20rem;
     }
   }
 }

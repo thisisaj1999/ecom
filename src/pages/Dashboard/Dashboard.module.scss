@@ -1,16 +1,28 @@
-.DashboardMain{
-  display: flex;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
+.DashboardMain {
+	display: flex;
+	height: 100vh;
+	width: 100%;
+	overflow: hidden;
 
-  & .SidebarContainer{
-    width: 15rem;
-  }
+	& .SidebarContainer {
+		width: 15rem;
+	}
 
-  & .PagesContainer {
-    width: calc(100% - 15rem); 
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
+	& .PagesContainer {
+		width: calc(100% - 15rem);
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+}
+
+@media (max-width: 768px) {
+	.DashboardMain {
+		& .SidebarContainer {
+			width: 12rem;
+		}
+
+		& .PagesContainer {
+			width: calc(100% - 12rem);
+		}
+	}
 }

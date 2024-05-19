@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useGlobalStore, useDashboardStore } from "../../utils/store";
 
@@ -32,6 +32,33 @@ import { IItemsData } from "../../contracts/IItemsData";
 
 
 const index: React.FC = () => {
+
+
+	const [numItemsToShow, setNumItemsToShow] = useState(3); // Default number of items to show
+  
+  useEffect(() => {
+    const handleResize = () => {
+      const windowWidth = window.innerWidth;
+      if (windowWidth >= 1440) {
+        setNumItemsToShow(5);
+      } else if (windowWidth >= 1024) {
+        setNumItemsToShow(4);
+      }else if (windowWidth >= 768) {
+        setNumItemsToShow(3);
+      } else {
+        setNumItemsToShow(2);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
+
 	const State = {
 		Global: {
 			currentPage: useGlobalStore((State) => State.currentPage),
@@ -44,7 +71,7 @@ const index: React.FC = () => {
 	console.log("State.Dashboard.itemsData", State.Dashboard.itemsData)
 
 	return (
-		<div className={styles.DashboardMain}>
+		<div className={styles.DashboardMainPage}>
       <div className={styles.DashboardCarousel}>
         <Swiper
           direction={"vertical"}
@@ -75,8 +102,8 @@ const index: React.FC = () => {
 			</h1>
 			<div className={styles.DashboardSwiper}>
 				<Swiper
-					slidesPerView={5}
-					spaceBetween={25}
+					slidesPerView={numItemsToShow}
+					spaceBetween={numItemsToShow === 6 ? 30 : numItemsToShow === 3 ? 18 : 25}
 					freeMode={true}
 					speed={1000}
 					loop={true}
@@ -100,8 +127,8 @@ const index: React.FC = () => {
 			</h1>
 			<div className={styles.DashboardSwiper}>
 				<Swiper
-					slidesPerView={5}
-					spaceBetween={25}
+					slidesPerView={numItemsToShow}
+					spaceBetween={numItemsToShow === 6 ? 30 : numItemsToShow === 3 ? 18 : 25}
 					speed={1000}
 					freeMode={true}
 					loop={true}

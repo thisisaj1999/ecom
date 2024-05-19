@@ -1,0 +1,109 @@
+.CartItemsStyles {
+	& :global(.ant-card) {
+		padding: 0.5rem;
+		height: 10rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+
+		& :global(.ant-card-body) {
+			padding: 0;
+			display: flex;
+			gap: 1rem;
+
+			&::after,
+			&::before {
+				display: none;
+			}
+
+			& .CartItemImage {
+				width: 8rem;
+				height: 8.5rem;
+
+				& img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+
+			& .CartItemContent {
+				width: calc(100% - 8rem);
+				padding: 0 1rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+
+				& .CartItemDetails {
+					display: flex;
+					justify-content: space-between;
+
+					& .CartItemName {
+						font-size: 18px;
+						max-width: 30rem;
+						line-height: 1.5rem;
+						font-weight: 600;
+						cursor: pointer;
+						color: black;
+						transition: color 0.3s ease-in;
+
+						&:hover {
+							color: dodgerblue;
+							transition: color 0.3s ease-out;
+						}
+					}
+
+					& .CartItemPrice {
+						font-size: 24px;
+						font-weight: 500;
+						color: limegreen;
+						line-height: normal;
+
+						& .CartItemCurrency {
+							font-size: 50%;
+							font-weight: 500;
+							color: black;
+						}
+					}
+				}
+
+				& .CartItemOptions {
+					display: flex;
+					gap: 0.5rem;
+					align-items: center;
+
+					& .CartItemQuantity {
+						display: flex;
+						align-items: center;
+						gap: 0.5rem;
+						font-weight: 500;
+					}
+
+					& .CartItemSave {
+						color: black;
+						transition: color 0.3s ease-in;
+						cursor: pointer;
+						font-weight: 500;
+
+						&:hover {
+							color: dodgerblue;
+							transition: color 0.3s ease-out;
+						}
+					}
+
+					& .CartItemDelete {
+						color: black;
+						transition: color 0.3s ease-in;
+						cursor: pointer;
+						font-weight: 500;
+
+						&:hover {
+							color: red;
+							transition: color 0.3s ease-out;
+						}
+					}
+				}
+			}
+		}
+	}
+}

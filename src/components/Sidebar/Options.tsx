@@ -1,7 +1,6 @@
 import styles from "./Sidebar.module.scss";
 
 // ANTD
-import { ClockCircleOutlined } from '@ant-design/icons';
 import { Badge } from 'antd';
 
 // Images

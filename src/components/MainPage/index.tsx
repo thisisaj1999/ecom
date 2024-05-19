@@ -39,7 +39,7 @@ const index: React.FC = () => {
   useEffect(() => {
     const handleResize = () => {
       const windowWidth = window.innerWidth;
-      if (windowWidth >= 1440) {
+      if (windowWidth > 1440) {
         setNumItemsToShow(5);
       } else if (windowWidth >= 1024) {
         setNumItemsToShow(4);

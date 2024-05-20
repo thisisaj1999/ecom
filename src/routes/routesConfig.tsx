@@ -32,6 +32,11 @@ const RoutesConfig = () => {
 					exact: true,
 				},
 				{
+					path: `/product/:slug`,
+					component: Dashboard,
+					exact: true,
+				},
+				{
 					path: `/all-sports/:sport/:slug`,
 					component: Dashboard,
 					exact: true,

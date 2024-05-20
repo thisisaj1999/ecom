@@ -5,6 +5,7 @@ import styles from "./Dashboard.module.scss";
 import Sidebar from "../../components/Sidebar";
 import MainPage from "../../components/MainPage";
 import Modal from '../../components/Modal'
+import ItemDetails from '../../components/ItemDetails'
 // Hooks
 import { useLocation } from "react-router-dom";
 
@@ -24,7 +25,8 @@ const index: React.FC = () => {
   useEffect(()=>{
     if(location.pathname === '/dashboard'){
       Update.Global.currentPage('dashboard')
-    }
+    }else if(location.pathname === '/product')
+			Update.Global.currentPage('product')
   },[location])
 
 	return (
@@ -34,7 +36,7 @@ const index: React.FC = () => {
 			</div>
 			{/* Pages */}
 			<div className={styles.PagesContainer}>
-				<MainPage />
+				{location.pathname === '/dashboard' ? <MainPage/> : <ItemDetails/>}
 				<Modal />
 			</div>
 		</div>

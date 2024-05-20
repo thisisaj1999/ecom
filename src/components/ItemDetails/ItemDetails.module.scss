@@ -1,0 +1,38 @@
+.ProductMainPage {
+	padding: 2rem 10rem;
+
+	& .ProductContainer {
+		display: flex;
+    gap: 1rem;
+
+		& .ProductImage {
+			height: 30rem;
+      width: 30rem;
+			& :global(.swiper) {
+				width: 100%;
+				height: 100%;
+
+				& :global(.swiper-slide) {
+					text-align: center;
+					font-size: 18px;
+					background: #fff;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					& img {
+						display: block;
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						border-radius: 10px;
+					}
+				}
+			}
+		}
+
+    & .ProductDetails{
+      width: 100%;
+    }
+	}
+}

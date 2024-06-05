@@ -168,7 +168,7 @@ const items: MenuItem[] = [
 				],
 			},
 			{
-				key: "cart",
+				key: "checkout",
 				icon: <img src={Cart} alt="" width={22} />,
 				label: <div className={styles.CartMenuStyle}><p>Cart</p><Badge count={3} color="green"/></div>,
 			},

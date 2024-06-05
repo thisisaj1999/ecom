@@ -1,0 +1,22 @@
+.CheckoutMain{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Checkout{
+  width: 70%;
+}
+
+.CheckoutFooter{
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CheckoutComponent{
+  line-height: 260px;
+  margin-top: 16px; 
+}

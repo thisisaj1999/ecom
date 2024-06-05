@@ -4,6 +4,7 @@ import Register from "../pages/Auth/Register";
 import Home from "../pages/Home";
 import Dashboard from "../pages/Dashboard";
 import Order from "../pages/Order";
+import Checkout from "../pages/Checkout";
 import { IRouteConfig } from "../contracts/IRouteConfig";
 import { useAuth } from '../utils/services/authentication'
 
@@ -49,6 +50,11 @@ const RoutesConfig = () => {
 				{
 					path: `/order-history`,
 					component: Order,
+					exact: true,
+				},
+				{
+					path: `/checkout`,
+					component: Checkout,
 					exact: true,
 				}
 			];

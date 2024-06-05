@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React  from "react";
 import styles from "./Modal.module.scss";
 import { Modal } from "antd";
 import { useModalStore } from "../../utils/store";
-import CartCard from "../CartCard";
 
 const index: React.FC = () => {
-	const [confirmLoading, setConfirmLoading] = useState(false);
-	const [modalText, setModalText] = useState("Content of the modal");
 
 	const State = {
 		Modal: {
@@ -23,12 +20,9 @@ const index: React.FC = () => {
 	};
 
 	const handleOk = () => {
-		setModalText("The modal will be closed after two seconds");
-		setConfirmLoading(true);
 		setTimeout(() => {
 			Update.Modal.isOpen(false);
 			Update.Modal.modalName("");
-			setConfirmLoading(false);
 		}, 2000);
 	};
 
@@ -44,20 +38,12 @@ const index: React.FC = () => {
 				centered
 				title={State.Modal.modalName}
 				open={State.Modal.isOpen}
-				onOk={handleOk}
-				confirmLoading={confirmLoading}
 				onCancel={handleCancel}
+				onOk={handleOk}
 				className={styles.ModalMainContainer}
 				width={1000}
 			>
-				{State.Modal.modalName === "Cart" ? (
-					<div className={styles.CartMainStyles}>
-						<CartCard />
-						<CartCard />
-					</div>
-				) : (
-					<p>{modalText}</p>
-				)}
+				<p>{'modalText'}</p>
 			</Modal>
 		</>
 	);

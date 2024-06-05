@@ -37,7 +37,7 @@ const index: React.FC = () => {
 	};
 
 	const onClick: MenuProps["onClick"] = async (e) => {
-		if(e.key !== 'profile' && e.key !== 'logout' && e.key !== 'cart'){
+		if(e.key !== 'profile' && e.key !== 'logout'){
 			const pathSlug = pathSlugMaker(e.keyPath);
 			const slug = wordsToSlug(e.key)
 			Update.Global.currentPage(slug)
@@ -45,11 +45,6 @@ const index: React.FC = () => {
 		}
 		if(e.key === 'logout'){
 			await Auth.SignOut();
-		}
-
-		if(e.key === 'cart'){
-			Update.Modal.isOpen(true)
-			Update.Modal.modalName("Cart")
 		}
 	
 		if(e.key === 'profile'){

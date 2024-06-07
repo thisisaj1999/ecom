@@ -1,38 +1,102 @@
 .ProductMainPage {
-	padding: 2rem 10rem;
+	height: 100%;
+	padding: 2rem 6rem;
 
 	& .ProductContainer {
+		margin-top: 2rem;
 		display: flex;
-    gap: 1rem;
+    gap: 3rem;
 
 		& .ProductImage {
 			height: 30rem;
-      width: 30rem;
-			& :global(.swiper) {
-				width: 100%;
-				height: 100%;
+      width: 60%;
+			display: grid;
+			gap: 1rem;
+			grid-template-columns: repeat(2, 1fr);
 
-				& :global(.swiper-slide) {
-					text-align: center;
-					font-size: 18px;
-					background: #fff;
-					display: flex;
-					justify-content: center;
-					align-items: center;
+			& .ImageBorder{
+				border: 2px solid #f5f4f5;
 
-					& img {
-						display: block;
-						width: 100%;
-						height: 100%;
-						object-fit: cover;
-						border-radius: 10px;
-					}
+				& .Image{
+					width: 100%;
 				}
 			}
 		}
 
     & .ProductDetails{
-      width: 100%;
+      width: 40%;
+
+			& .Title{
+				font-size: 24px;
+				font-weight: 600;
+				margin: .25rem 0;
+			}
+
+			& .Price{
+				margin-top: 1rem;
+				font-size: 18px;
+    		font-weight: 700;
+			}
+
+			& .Tabby{
+				margin: 1rem 0;
+				border: 1px solid #d6d6d3;
+				padding: 1rem;
+				border-radius: 7px;
+				display: flex;
+				align-items: center;
+
+				& .TabbyDetails{
+					font-size: 14px;
+					color: #1a2a34;
+				}
+			}
+
+			& .Description{
+				font-size: 14px;
+				margin-top: 8px;
+				font-weight: 400;
+			}
+
+			& .color,
+			& .size{
+				font-weight: 400;
+				font-size: 14px;
+				opacity: 0.99;
+				margin-top: 15px;
+			}
+
+			& .OptionsMain{
+				margin-top: 0.2rem;
+				display: flex;
+				gap: 0.5rem;
+				& .Option {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border: 2px solid #eff1f3;
+
+					padding: 0.2rem;
+					img {
+						width: 2.5rem;
+					}
+				}
+			}
+
+			& .AddToCartBtn{
+				margin-top: 1rem;
+				background-color: #3643ba;
+				font-size: 14px;
+				padding: 10px 40px;
+				min-height: 40px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: .2px;
+				font-weight: 700;
+				text-transform: uppercase;
+				width: 100%;
+			}
     }
 	}
 }

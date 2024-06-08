@@ -9,3 +9,7 @@
 body{
     font-family: 'Poppins', sans-serif;
 }
+
+:global(.ant-tooltip-inner){
+    font-size: 10px;
+}

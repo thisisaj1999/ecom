@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Card.module.scss";
 
+import { Tooltip } from "antd";
 
 // Types
 import { IItemsData } from "../../contracts/IItemsData";
@@ -45,7 +46,11 @@ const index: React.FC<ItemProps> = ({ data }) => {
 				</div>
 				<div className={styles.CardContent}>
 					<div>
-						<p className={styles.CardProductName}>{data?.title}</p>
+						<p className={styles.CardProductName}>
+							<Tooltip placement="topLeft" title={data?.title}>
+								{data?.title}
+							</Tooltip>
+						</p>
 						<p className={styles.CardProductPrice}>{`$ ${data?.price}`}</p>
 					</div>
 					<div

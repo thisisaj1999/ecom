@@ -1,3 +1,5 @@
+import { IItemsData } from "../../contracts/IItemsData";
+
 const getRandomColor = () => {
 	const letters = "0123456789ABCDEF";
 	let color = "#";
@@ -20,4 +22,37 @@ const slugToWords = (slug: string): string =>
 		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
 		.join(" ");
 
-export { getRandomColor, pathSlugMaker, wordsToSlug, slugToWords };
+
+
+interface CartItemsType {
+	[key: string]: IItemsData[];
+}
+		
+const addToCartFn = (data: IItemsData, Uid: string) => {
+	const storedItems = localStorage.getItem('Cart');
+	const cartItems: CartItemsType = storedItems ? JSON.parse(storedItems) : {};
+
+	if (!cartItems[Uid]) {
+		cartItems[Uid] = [];
+	}
+
+	cartItems[Uid] = [...cartItems[Uid], data];
+
+	localStorage.setItem('Cart', JSON.stringify(cartItems));
+};
+		
+const removeFromCartFn = (data: IItemsData, Uid: string) => {
+	const storedItems = localStorage.getItem('Cart');
+	if (!storedItems) return;
+
+	const cartItems: CartItemsType = JSON.parse(storedItems);
+
+	if (!cartItems[Uid]) return;
+
+	cartItems[Uid] = cartItems[Uid].filter(item => item.id !== data.id);
+
+	localStorage.setItem('Cart', JSON.stringify(cartItems));
+};
+
+		
+export { getRandomColor, pathSlugMaker, wordsToSlug, slugToWords, addToCartFn, removeFromCartFn };

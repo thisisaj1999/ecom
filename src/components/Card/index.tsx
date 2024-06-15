@@ -6,11 +6,18 @@ import { Tooltip } from "antd";
 // Types
 import { IItemsData } from "../../contracts/IItemsData";
 
+import { useAuth } from "../../utils/services/authentication"; 
+
+import { addToCartFn, removeFromCartFn } from "../../utils/services/other";
+
 interface ItemProps {
   data: IItemsData;
 }
 
 const index: React.FC<ItemProps> = ({ data }) => {
+	const Auth = useAuth()
+	const Uid = Auth.User?.uid
+
 	const [isLiked, setIsLiked] = useState(false);
 	const [addToCart, setAddToCart] = useState(false);
 
@@ -19,7 +26,12 @@ const index: React.FC<ItemProps> = ({ data }) => {
 	};
 
 	const addToCartHandler = () => {
-		setAddToCart(!addToCart);
+		if (addToCart) {
+      removeFromCartFn(data, Uid);
+    } else {
+      addToCartFn(data, Uid);
+    }
+    setAddToCart(!addToCart);
 	};
 
 	return (

@@ -54,5 +54,14 @@ const removeFromCartFn = (data: IItemsData, Uid: string) => {
 	localStorage.setItem('Cart', JSON.stringify(cartItems));
 };
 
+const getCartItems = (Uid: string) => {
+	const storedItems = localStorage.getItem('Cart');
+	if (!storedItems) return;
+
+	const cartItems: CartItemsType = JSON.parse(storedItems);
+	if (!cartItems[Uid]) return;
+
+	return cartItems[Uid]
+}
 		
-export { getRandomColor, pathSlugMaker, wordsToSlug, slugToWords, addToCartFn, removeFromCartFn };
+export { getRandomColor, pathSlugMaker, wordsToSlug, slugToWords, addToCartFn, removeFromCartFn, getCartItems };

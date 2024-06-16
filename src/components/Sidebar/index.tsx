@@ -9,22 +9,26 @@ import Options from './Options'
 
 // Hooks
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../utils/services/authentication";
 
 // State
-import { useGlobalStore, useModalStore } from "../../utils/store";
+import { useDashboardStore, useGlobalStore, useModalStore } from "../../utils/store";
 
 // Types
 import type { MenuProps } from "antd";
 
 // Other functions
 import { pathSlugMaker, wordsToSlug } from "../../utils/services/other";
+import { useAuth } from "../../utils/services/authentication";
 
 const index: React.FC = () => {
 
-	const memoizedOptions = useMemo(() => Options, []);
-	const navigate = useNavigate()
-	const Auth = useAuth();
+	const Auth = useAuth()
+
+	const State = {
+		Dashboard: {
+			cartItemsLength: useDashboardStore((State) => State.cartItemsLength)
+		}
+	}
 
 	const Update = {
 		Global: {
@@ -35,6 +39,9 @@ const index: React.FC = () => {
 			modalName: useModalStore((State) => State.setModalName),
 		},
 	};
+
+	const memoizedOptions = useMemo(() => Options(State.Dashboard.cartItemsLength), [ , State.Dashboard.cartItemsLength]);
+	const navigate = useNavigate()
 
 	const onClick: MenuProps["onClick"] = async (e) => {
 		if(e.key !== 'profile' && e.key !== 'logout'){

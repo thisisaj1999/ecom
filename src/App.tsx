@@ -10,10 +10,11 @@ import RoutesConfig from "./routes/routesConfig";
 import Redirect from "./routes/redirect";
 
 // State
-import { useDashboardStore } from "./utils/store";
+import { useDashboardStore, useGlobalStore, useUserStore } from "./utils/store";
 
 // Others
 import { getAllItems } from "./utils/services/requests";
+import { getCartItems } from "./utils/services/other";
 
 const App: React.FC = () => {
 	const AllRoutes = RoutesConfig();
@@ -21,8 +22,29 @@ const App: React.FC = () => {
 	const Update = {
 		Dashboard: {
 			itemsData: useDashboardStore((State) => State.setItemsData),
+			cartItemsLength: useDashboardStore((State) => State.setCartItemsLength)
+		},
+		Global: {
+			isLoading: useGlobalStore((State) => State.setIsLoading)
 		},
 	};
+
+	const State = {
+		User: {
+			id: useUserStore((State) => State.id)
+		},
+		Global: {
+			isLoading: useGlobalStore((State) => State.isLoading)
+		}
+	}
+
+	useEffect(() => {
+		if(State.User.id){
+			Update.Global.isLoading(false)
+			const cartItems = getCartItems(State.User.id)
+			Update.Dashboard.cartItemsLength(cartItems?.length || 0)
+		}
+	},[State.User.id])
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -39,21 +61,29 @@ const App: React.FC = () => {
 
 	return (
 		<div className={style.App}>
-			<Routes>
-				{AllRoutes.map((route, index) => {
-					return (
-						<Route
-							key={index}
-							path={route.path}
-							element={<route.component />}
-						/>
-					);
-				})}
-
-				{/* WildCard Routes */}
-				<Route path="*" element={<Redirect />} />
-			</Routes>
-			<Drawer/>
+			{
+				State.Global.isLoading ? (
+					<>Loading...</>
+				) : (
+					<>
+						<Routes>
+							{AllRoutes.map((route, index) => {
+								return (
+									<Route
+										key={index}
+										path={route.path}
+										element={<route.component />}
+									/>
+								);
+							})}
+		
+							{/* WildCard Routes */}
+							<Route path="*" element={<Redirect />} />
+						</Routes>
+						<Drawer/>
+					</>
+				)
+			}
 		</div>
 	);
 };

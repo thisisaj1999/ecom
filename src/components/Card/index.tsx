@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Card.module.scss";
 
 import { Tooltip } from "antd";
@@ -8,7 +8,9 @@ import { IItemsData } from "../../contracts/IItemsData";
 
 import { useAuth } from "../../utils/services/authentication"; 
 
-import { addToCartFn, removeFromCartFn } from "../../utils/services/other";
+import { addToCartFn, removeFromCartFn, getCartItems } from "../../utils/services/other";
+
+import { useDashboardStore, useUserStore } from "../../utils/store";
 
 interface ItemProps {
   data: IItemsData;
@@ -20,6 +22,19 @@ const index: React.FC<ItemProps> = ({ data }) => {
 
 	const [isLiked, setIsLiked] = useState(false);
 	const [addToCart, setAddToCart] = useState(false);
+
+	const State = {
+		User: {
+			id: useUserStore((State) => State.id)
+		},
+	};
+
+	const Update = {
+		Dashboard: {
+			cartItemsLength: useDashboardStore((State) => State.setCartItemsLength)
+		},
+	};
+
 
 	const LikeButtonHandler = () => {
 		setIsLiked(!isLiked);
@@ -33,6 +48,11 @@ const index: React.FC<ItemProps> = ({ data }) => {
     }
     setAddToCart(!addToCart);
 	};
+
+	useEffect(() => {
+		const cartItems = getCartItems(State.User.id)
+		Update.Dashboard.cartItemsLength(cartItems?.length || 0)
+	},[addToCartHandler])
 
 	return (
 		<div className={styles.CardMain}>

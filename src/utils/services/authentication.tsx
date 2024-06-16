@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext, createContext, PropsWithChildren } from 'react';
 import { AuthInstance } from './firebase';
+import { useUserStore } from '../store';
 
 const AuthContext = createContext<any | null>(null);
 
@@ -13,6 +14,15 @@ export const useAuth = () => {
 };
 
 function useProvideAuth() {
+
+    const Update = {
+        UserStore : {
+            id: useUserStore((State) => State.setId),
+            name: useUserStore((State) => State.setName),
+            email: useUserStore((State) => State.setEmail),
+        }
+    }
+
     const [User, setUser] = useState<any | []>([]);
     const [Profile, setProfile] = useState<any | []>([]);
     const [Token, setToken] = useState<any | []>([]);
@@ -73,6 +83,9 @@ function useProvideAuth() {
     const handleUser = async (_User: any) => {
         if (_User) {
             setToken(await GetToken(_User));
+            Update.UserStore.id(_User.uid)
+            Update.UserStore.name(_User.displayName)
+            Update.UserStore.email(_User.email)
             setUser(_User);
         } else {
             setUser(null);

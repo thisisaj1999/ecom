@@ -27,7 +27,6 @@ const index = () => {
 		}
 	},[State.Dashboard.cartItemsLength])
 
-	console.log(cartItems)
 	
 	const CartStep: React.FC = () => {
 		return (

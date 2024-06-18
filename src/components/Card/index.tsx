@@ -50,10 +50,8 @@ const index: React.FC<ItemProps> = ({ data }) => {
 
 	const addToCartHandler = () => {
 		if (addToCart) {
-			console.log(data)
       removeFromCartFn(data, Uid);
     } else {
-			console.log(data)
       addToCartFn(data, Uid);
     }
     setAddToCart(!addToCart);

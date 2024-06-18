@@ -68,7 +68,6 @@ const index: React.FC = () => {
 		}
 	};
 
-	console.log("State.Dashboard.itemsData", State.Dashboard.itemsData)
 
 	return (
 		<div className={styles.DashboardMainPage}>

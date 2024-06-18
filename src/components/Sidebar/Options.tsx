@@ -171,7 +171,10 @@ const index = (badge: number) => {
 				{
 					key: "checkout",
 					icon: <img src={Cart} alt="" width={22} />,
-					label: <div className={styles.CartMenuStyle}><p>Cart</p><Badge count={badge} color="green"/></div>,
+					label: <div className={styles.CartMenuStyle}>
+						<p>Cart</p>
+							{badge > 0 && <Badge count={badge} color="green"/>}
+						</div>,
 				},
 				{
 					key: "order-history",

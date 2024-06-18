@@ -35,6 +35,14 @@ const index: React.FC<ItemProps> = ({ data }) => {
 		},
 	};
 
+	useEffect(() => {
+    const cartItems = getCartItems(State.User.id);
+    if (cartItems) {
+			const isItemInCart = cartItems.some(item => item.id === data.id);
+			setAddToCart(isItemInCart);
+    }
+	}, [State.User.id, data.id]);
+
 
 	const LikeButtonHandler = () => {
 		setIsLiked(!isLiked);
@@ -42,8 +50,10 @@ const index: React.FC<ItemProps> = ({ data }) => {
 
 	const addToCartHandler = () => {
 		if (addToCart) {
+			console.log(data)
       removeFromCartFn(data, Uid);
     } else {
+			console.log(data)
       addToCartFn(data, Uid);
     }
     setAddToCart(!addToCart);

@@ -2,17 +2,22 @@ import React from "react";
 import style from './Checkout.module.scss'
 import Stepper from "../../components/Stepper";
 import CartCard from '../../components/CartCard'
+import { getCartItems } from "../../utils/services/other";
+import { useAuth } from "../../utils/services/authentication";
 
 const index = () => {
+
+	const Auth = useAuth()
+	const Uid = Auth.User?.uid
+
+	const cartItems = getCartItems(Uid)
+
 	const CartStep: React.FC = () => {
 		return (
 			<div className={style.CartStepMainStyles}>
-				<CartCard />
-				<CartCard />
-				<CartCard />
-				<CartCard />
-				<CartCard />
-				<CartCard />
+				{cartItems?.map((item, index) => (
+					<CartCard item={item} key={index}/>
+				))}
 			</div>
 		);
 	};

@@ -1,8 +1,13 @@
 import React from "react";
 import styles from "./CartCard.module.scss";
 import { Card, Select, Divider } from "antd";
+import { IItemsData } from "../../contracts/IItemsData";
 
-const index: React.FC = () => {
+interface ItemProps {
+  item: IItemsData;
+}
+
+const index: React.FC<ItemProps> = ({ item }) => {
 	const handleChange = (value: string) => {
 		console.log(`selected ${value}`);
 	};
@@ -12,18 +17,17 @@ const index: React.FC = () => {
 			<Card>
 				<div className={styles.CartItemImage}>
 					<img
-						src={`https://decathlon.ae/cdn/shop/products/da411eb9efdc9b140a8ab5c1e2bf2dc4_422x.progressive.jpg?v=1709259411`}
+						src={item?.images[0]}
 						alt=""
 					/>
 				</div>
 				<div className={styles.CartItemContent}>
 					<div className={styles.CartItemDetails}>
 						<p className={styles.CartItemName}>
-							FOAM SURFBOARD 100 7'. SUPPLIED WITH A LEASH AND 3
-							FINS.
+							{item?.title}
 						</p>
 						<p className={styles.CartItemPrice}>
-							565{" "}
+							{item?.price}{" "}
 							<span className={styles.CartItemCurrency}>AED</span>
 						</p>
 					</div>

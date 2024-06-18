@@ -2,15 +2,41 @@ import React from "react";
 import styles from "./CartCard.module.scss";
 import { Card, Select, Divider } from "antd";
 import { IItemsData } from "../../contracts/IItemsData";
+import { removeFromCartFn } from "../../utils/services/other";
+import { useAuth } from "../../utils/services/authentication";
+import { useDashboardStore } from "../../utils/store";
 
 interface ItemProps {
   item: IItemsData;
 }
 
 const index: React.FC<ItemProps> = ({ item }) => {
+
+	const State = {
+		Dashboard: {
+			cartItemsLength: useDashboardStore((State) => State.cartItemsLength)
+		},
+	};
+
+	const Update = {
+		Dashboard: {
+			cartItemsLength: useDashboardStore((State) => State.setCartItemsLength)
+		},
+	};
+
+	const Auth = useAuth();
+	const Uid = Auth.User?.uid
+
 	const handleChange = (value: string) => {
 		console.log(`selected ${value}`);
 	};
+
+	const handleRemoveFromCart = () => {
+		removeFromCartFn(item, Uid)
+		if(State.Dashboard.cartItemsLength > 0){
+			Update.Dashboard.cartItemsLength(State.Dashboard.cartItemsLength - 1)	
+		}
+	}
 
 	return (
 		<div className={styles.CartItemsStyles}>
@@ -55,7 +81,7 @@ const index: React.FC<ItemProps> = ({ item }) => {
 						<Divider type="vertical" style={{ height: "70%" }} />
 						<p className={styles.CartItemSave}>Save For Later</p>
 						<Divider type="vertical" style={{ height: "70%" }} />
-						<p className={styles.CartItemDelete}>Delete</p>
+						<p className={styles.CartItemDelete} onClick={handleRemoveFromCart}>Delete</p>
 					</div>
 				</div>
 			</Card>

@@ -32,9 +32,6 @@ const App: React.FC = () => {
 	const State = {
 		User: {
 			id: useUserStore((State) => State.id)
-		},
-		Global: {
-			isLoading: useGlobalStore((State) => State.isLoading)
 		}
 	}
 
@@ -61,29 +58,21 @@ const App: React.FC = () => {
 
 	return (
 		<div className={style.App}>
-			{
-				State.Global.isLoading ? (
-					<>Loading...</>
-				) : (
-					<>
-						<Routes>
-							{AllRoutes.map((route, index) => {
-								return (
-									<Route
-										key={index}
-										path={route.path}
-										element={<route.component />}
-									/>
-								);
-							})}
-		
-							{/* WildCard Routes */}
-							<Route path="*" element={<Redirect />} />
-						</Routes>
-						<Drawer/>
-					</>
-				)
-			}
+			<Routes>
+				{AllRoutes.map((route, index) => {
+					return (
+						<Route
+							key={index}
+							path={route.path}
+							element={<route.component />}
+						/>
+					);
+				})}
+
+				{/* WildCard Routes */}
+				<Route path="*" element={<Redirect />} />
+			</Routes>
+			<Drawer/>
 		</div>
 	);
 };

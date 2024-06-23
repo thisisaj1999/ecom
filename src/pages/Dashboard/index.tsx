@@ -6,6 +6,7 @@ import Sidebar from "../../components/Sidebar";
 import MainPage from "../../components/MainPage";
 import Modal from '../../components/Modal'
 import ItemDetails from '../../components/ItemDetails'
+import Loading from '../../components/Loading'
 // Hooks
 import { useLocation } from "react-router-dom";
 
@@ -16,6 +17,12 @@ const index: React.FC = () => {
 
 	const location = useLocation()
   
+	const State = {
+		Global: {
+			isLoading: useGlobalStore((State) => State.isLoading)
+		}
+	}
+
 	const Update = {
 		Global: {
 			currentPage: useGlobalStore((State) => State.setCurrentPage),
@@ -31,14 +38,21 @@ const index: React.FC = () => {
 
 	return (
 		<div className={styles.DashboardMain}>
-			<div className={styles.SidebarContainer}>
-				<Sidebar />
-			</div>
-			{/* Pages */}
-			<div className={styles.PagesContainer}>
-				{location.pathname === '/dashboard' ? <MainPage/> : <ItemDetails/>}
-				<Modal />
-			</div>
+			{State.Global.isLoading ? 
+			(
+				<Loading/>
+			) : (
+				<>
+					<div className={styles.SidebarContainer}>
+						<Sidebar />
+					</div>
+					{/* Pages */}
+					<div className={styles.PagesContainer}>
+						{location.pathname === '/dashboard' ? <MainPage/> : <ItemDetails/>}
+						<Modal />
+					</div>
+				</>
+			)}
 		</div>
 	);
 };

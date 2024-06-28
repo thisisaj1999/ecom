@@ -9,6 +9,7 @@ import Options from './Options'
 
 // Hooks
 import { useNavigate } from "react-router-dom";
+import { useSnackbar } from "notistack";
 
 // State
 import { useDashboardStore, useGlobalStore, useModalStore } from "../../utils/store";
@@ -23,6 +24,7 @@ import { useAuth } from "../../utils/services/authentication";
 const index: React.FC = () => {
 
 	const Auth = useAuth()
+	const { enqueueSnackbar } = useSnackbar();
 
 	const State = {
 		Dashboard: {
@@ -44,12 +46,26 @@ const index: React.FC = () => {
 	const navigate = useNavigate()
 
 	const onClick: MenuProps["onClick"] = async (e) => {
-		if(e.key !== 'profile' && e.key !== 'logout'){
+		if(e.key !== 'profile' && e.key !== 'logout' && e.key !== 'checkout'){
 			const pathSlug = pathSlugMaker(e.keyPath);
 			const slug = wordsToSlug(e.key)
 			Update.Global.currentPage(slug)
 			navigate(`/${pathSlug}`)
 		}
+
+		if(e.key === 'checkout'){
+			if(State.Dashboard.cartItemsLength === 0) {
+				enqueueSnackbar("Your cart is empty", {
+					variant: "info",
+				});
+			}else{
+				const pathSlug = pathSlugMaker(e.keyPath);
+				const slug = wordsToSlug(e.key)
+				Update.Global.currentPage(slug)
+				navigate(`/${pathSlug}`)
+			}
+		}
+
 		if(e.key === 'logout'){
 			await Auth.SignOut();
 		}

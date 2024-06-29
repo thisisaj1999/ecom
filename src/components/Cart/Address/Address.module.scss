@@ -1,0 +1,21 @@
+.CartItemsStyles {
+	& :global(.ant-card) {
+		padding: 0.5rem;
+		height: 12rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+
+		& :global(.ant-card-body) {
+			padding: 0;
+			display: flex;
+			gap: 1rem;
+
+			&::after,
+			&::before {
+				display: none;
+			}
+		}
+	}
+}

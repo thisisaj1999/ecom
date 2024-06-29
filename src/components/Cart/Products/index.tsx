@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./CartCard.module.scss";
+import styles from "./Products.module.scss";
 import { Card, Select, Divider } from "antd";
-import { IItemsData } from "../../contracts/IItemsData";
-import { removeFromCartFn } from "../../utils/services/other";
-import { useAuth } from "../../utils/services/authentication";
-import { useDashboardStore } from "../../utils/store";
+import { IItemsData } from "../../../contracts/IItemsData";
+import { removeFromCartFn } from "../../../utils/services/other";
+import { useAuth } from "../../../utils/services/authentication";
+import { useDashboardStore } from "../../../utils/store";
 
 interface ItemProps {
   item: IItemsData;

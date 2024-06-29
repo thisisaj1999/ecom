@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import style from './Checkout.module.scss'
 import Stepper from "../../components/Stepper";
-import CartCard from '../../components/CartCard'
+import { Products, Address, Payments } from "../../components/Cart";
 import { getCartItems } from "../../utils/services/other";
 import { useAuth } from "../../utils/services/authentication";
 import { useDashboardStore } from "../../utils/store";
@@ -32,18 +32,26 @@ const index = () => {
 		return (
 			<div className={style.CartStepMainStyles}>
 				{cartItems?.map((item, index) => (
-					<CartCard item={item} key={index}/>
+					<Products item={item} key={index}/>
 				))}
 			</div>
 		);
 	};
 
 	const AddressStep: React.FC = () => {
-		return "AddressStep";
+		return (
+			<div className={style.CartStepMainStyles}>
+				<Address />
+			</div>
+		);
 	};
 
 	const PaymentStep: React.FC = () => {
-		return "PaymentStep";
+		return (
+			<div className={style.CartStepMainStyles}>
+				<Payments />
+			</div>
+		);
 	};
 
 	return (

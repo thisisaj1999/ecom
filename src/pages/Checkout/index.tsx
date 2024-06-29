@@ -39,19 +39,11 @@ const index = () => {
 	};
 
 	const AddressStep: React.FC = () => {
-		return (
-			<div className={style.CartStepMainStyles}>
-				<Address />
-			</div>
-		);
+		return <Address />;
 	};
 
 	const PaymentStep: React.FC = () => {
-		return (
-			<div className={style.CartStepMainStyles}>
-				<Payments />
-			</div>
-		);
+		return <Payments />;
 	};
 
 	return (

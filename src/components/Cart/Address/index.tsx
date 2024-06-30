@@ -136,7 +136,14 @@ const index:React.FC = () => {
         </Form>
       </Card>
       <Card className={styles.ShowCartItem}>
-        Item Product
+        <div className={styles.Subtotal}>
+          <h2>Subtotal:</h2>
+          <h2>200$</h2>
+        </div>
+        <div className={styles.Breakdown}>
+          <p>Service Charge:</p>
+          <p>1.50$</p>
+        </div>
       </Card>
     </div>
   )

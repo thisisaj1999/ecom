@@ -35,20 +35,23 @@
 		& .ShowCartItemHeading{
 			font-size: 20px;
 			font-weight: 600;
-			margin-bottom: 0.5rem;
 		}
 
 		& :global(.ant-card-body){
 			flex-direction: column;
 			gap: 0.5rem;
+
+			& :global(.ant-divider){
+				margin: 16px 0 8px 0;
+			}
 		}
 
 		& .Subtotal{
 			width: 100%;
 			display: flex;
 			justify-content: space-between;
-			& h2 {
-				font-size: 18px;
+			& p {
+				font-size: 16px;
 				font-weight: 500;
 			}
 		}
@@ -60,6 +63,16 @@
 			& p {
 				font-size: 16px;
 				font-weight: 500;
+			}
+		}
+
+		& .Total{
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			& p {
+				font-size: 18px;
+				font-weight: 600;
 			}
 		}
 	}

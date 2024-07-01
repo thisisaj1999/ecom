@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Form, Input } from "antd";
+import { Card, Form, Input, Divider } from "antd";
 import styles from './Address.module.scss'
 
 const index:React.FC = () => {
@@ -137,13 +137,18 @@ const index:React.FC = () => {
       </Card>
       <Card className={styles.ShowCartItem}>
         <h1 className={styles.ShowCartItemHeading}>Order Summary</h1>
+        <Divider />
         <div className={styles.Subtotal}>
-          <h2>Subtotal:</h2>
-          <h2>200$</h2>
+          <p>Subtotal :</p>
+          <p>200$</p>
         </div>
         <div className={styles.Breakdown}>
-          <p>Service Charge:</p>
-          <p>1.50$</p>
+          <p>Shipping Charge :</p>
+          <p>10$</p>
+        </div>
+        <div className={styles.Total}>
+          <p>Total :</p>
+          <p>210$</p>
         </div>
       </Card>
     </div>

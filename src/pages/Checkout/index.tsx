@@ -31,9 +31,7 @@ const index = () => {
 	const CartStep: React.FC = () => {
 		return (
 			<div className={style.CartStepMainStyles}>
-				{cartItems?.map((item, index) => (
-					<Products item={item} key={index}/>
-				))}
+				<Products cartItems={cartItems}/>
 			</div>
 		);
 	};

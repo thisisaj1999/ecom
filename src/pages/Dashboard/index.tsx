@@ -40,7 +40,7 @@ const index: React.FC = () => {
 		<div className={styles.DashboardMain}>
 			{State.Global.isLoading ? 
 			(
-				<Loading/>
+				<Loading height="100%" width="12rem"/>
 			) : (
 				<>
 					<div className={styles.SidebarContainer}>

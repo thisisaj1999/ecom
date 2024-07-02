@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Products.module.scss";
 import { Card, Select, Divider } from "antd";
 import { IItemsData } from "../../../contracts/IItemsData";
-import { getCartItems, removeFromCartFn } from "../../../utils/services/other";
+import { formatNumberWithCommas, getCartItems, removeFromCartFn } from "../../../utils/services/other";
 import { useAuth } from "../../../utils/services/authentication";
 import { useDashboardStore } from "../../../utils/store";
 import Loading from '../../Loading'
@@ -74,12 +74,7 @@ const index: React.FC<ItemProps> = ({cartItems}) => {
 													{item?.title}
 												</p>
 												<p className={styles.CartItemPrice}>
-													{item?.price}{" "}
-													<span
-														className={styles.CartItemCurrency}
-													>
-														AED
-													</span>
+													{'$'}{formatNumberWithCommas(item?.price)}{" "}
 												</p>
 											</div>
 											<div className={styles.CartItemOptions}>

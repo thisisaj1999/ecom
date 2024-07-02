@@ -8,7 +8,7 @@ import { IItemsData } from "../../contracts/IItemsData";
 
 import { useAuth } from "../../utils/services/authentication"; 
 
-import { addToCartFn, removeFromCartFn, getCartItems } from "../../utils/services/other";
+import { addToCartFn, removeFromCartFn, getCartItems, formatNumberWithCommas } from "../../utils/services/other";
 
 import { useDashboardStore, useUserStore } from "../../utils/store";
 
@@ -91,7 +91,7 @@ const index: React.FC<ItemProps> = ({ data }) => {
 								{data?.title}
 							</Tooltip>
 						</p>
-						<p className={styles.CardProductPrice}>{`$ ${data?.price}`}</p>
+						<p className={styles.CardProductPrice}>{`$${formatNumberWithCommas(data?.price)}`}</p>
 					</div>
 					<div
 						className={styles.addToCartBtn}

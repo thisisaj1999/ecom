@@ -64,4 +64,14 @@ const getCartItems = (Uid: string) => {
 	return cartItems[Uid]
 }
 		
-export { getRandomColor, pathSlugMaker, wordsToSlug, slugToWords, addToCartFn, removeFromCartFn, getCartItems };
+const formatNumberWithCommas = (val:number) => {
+	let numStr = val.toString();
+	let lastThree = numStr.slice(-3);
+	let otherNumbers = numStr.slice(0, -3);
+
+	return otherNumbers
+			? otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," + lastThree
+			: lastThree;
+}
+
+export { getRandomColor, pathSlugMaker, wordsToSlug, slugToWords, addToCartFn, removeFromCartFn, getCartItems, formatNumberWithCommas };

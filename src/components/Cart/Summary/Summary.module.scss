@@ -1,0 +1,54 @@
+.ShowCartItem {
+  width: 40%;
+  height: 100%;
+
+  & .ShowCartItemHeading {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  & :global(.ant-card-body) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    &::after,
+    &::before {
+      display: none;
+    }
+
+    & :global(.ant-divider) {
+      margin: 16px 0 8px 0;
+    }
+  }
+
+  & .Subtotal {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    & p {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  & .Breakdown {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    & p {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  & .Total {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    & p {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+}

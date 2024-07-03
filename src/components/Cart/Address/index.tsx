@@ -1,6 +1,8 @@
 import React from 'react'
 import { Card, Form, Input, Divider } from "antd";
 import styles from './Address.module.scss'
+import { formatNumberWithCommas } from '../../../utils/services/other';
+import Summary from '../Summary'
 
 const index:React.FC = () => {
 
@@ -8,7 +10,7 @@ const index:React.FC = () => {
 
   return (
     <div className={styles.CartItemsStyles}>
-      <Card>
+      <Card className={styles.CartItemAddressStyle}>
         <Form
           layout="vertical"
           style={{
@@ -135,22 +137,7 @@ const index:React.FC = () => {
 
         </Form>
       </Card>
-      <Card className={styles.ShowCartItem}>
-        <h1 className={styles.ShowCartItemHeading}>Order Summary</h1>
-        <Divider />
-        <div className={styles.Subtotal}>
-          <p>Subtotal :</p>
-          <p>200$</p>
-        </div>
-        <div className={styles.Breakdown}>
-          <p>Shipping Charge :</p>
-          <p>10$</p>
-        </div>
-        <div className={styles.Total}>
-          <p>Total :</p>
-          <p>210$</p>
-        </div>
-      </Card>
+      <Summary />
     </div>
   )
 }

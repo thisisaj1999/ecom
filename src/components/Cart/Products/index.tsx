@@ -6,6 +6,7 @@ import { formatNumberWithCommas, getCartItems, removeFromCartFn } from "../../..
 import { useAuth } from "../../../utils/services/authentication";
 import { useDashboardStore } from "../../../utils/store";
 import Loading from '../../Loading'
+import Summary from '../Summary'
 
 interface ItemProps {
 	cartItems: IItemsData[];
@@ -123,23 +124,7 @@ const index: React.FC<ItemProps> = ({cartItems}) => {
 						})
 					}
 				</div>
-
-				<Card className={styles.ShowCartItem}>
-					<h1 className={styles.ShowCartItemHeading}>Order Summary</h1>
-					<Divider />
-					<div className={styles.Subtotal}>
-						<p>Subtotal :</p>
-						<p>200$</p>
-					</div>
-					<div className={styles.Breakdown}>
-						<p>Shipping Charge :</p>
-						<p>10$</p>
-					</div>
-					<div className={styles.Total}>
-						<p>Total :</p>
-						<p>210$</p>
-					</div>
-				</Card>
+				<Summary />
 			</div>
 		) : (
 			<div className={styles.LoadingStyles}>

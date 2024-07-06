@@ -4,7 +4,7 @@ import { Card, Select, Divider } from "antd";
 import { IItemsData } from "../../../contracts/IItemsData";
 import { formatNumberWithCommas, getCartItems, removeFromCartFn } from "../../../utils/services/other";
 import { useAuth } from "../../../utils/services/authentication";
-import { useDashboardStore } from "../../../utils/store";
+import { useDashboardStore, useSummaryStore } from "../../../utils/store";
 import Loading from '../../Loading'
 import Summary from '../Summary'
 
@@ -18,18 +18,21 @@ const index: React.FC<ItemProps> = ({cartItems}) => {
 
 	const State = {
 		Dashboard: {
-			cartItemsLength: useDashboardStore(
-				(State) => State.cartItemsLength
-			),
+			cartItemsLength: useDashboardStore((State) => State.cartItemsLength),
 		},
+		Summary: {
+			shippingCharge: useSummaryStore((State) => State.shippingCharge)
+		}
 	};
 
 	const Update = {
 		Dashboard: {
-			cartItemsLength: useDashboardStore(
-				(State) => State.setCartItemsLength
-			),
+			cartItemsLength: useDashboardStore((State) => State.setCartItemsLength),
 		},
+		Summary: {
+			subtotal: useSummaryStore((State) => State.setSubtotal),
+			total: useSummaryStore((State) => State.setTotal),
+		}
 	};
 
 	const Auth = useAuth();
@@ -39,6 +42,9 @@ const index: React.FC<ItemProps> = ({cartItems}) => {
 		if(State.Dashboard.cartItemsLength > 0){
 			const fetchedItems = getCartItems(Uid)
 			if(fetchedItems){
+				const getPriceFromItems = fetchedItems.reduce((total, item) => total + item.price, 0);
+				Update.Summary.subtotal(getPriceFromItems)
+				Update.Summary.total(getPriceFromItems + State.Summary.shippingCharge)
 				setCartItemsState(fetchedItems)
 			}
 		}

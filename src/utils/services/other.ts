@@ -74,4 +74,13 @@ const formatNumberWithCommas = (val:number) => {
 			: lastThree;
 }
 
-export { getRandomColor, pathSlugMaker, wordsToSlug, slugToWords, addToCartFn, removeFromCartFn, getCartItems, formatNumberWithCommas };
+const emptyCartFn = (Uid: string) => {
+	const storedItems = localStorage.getItem('Cart');
+	const cartItems: CartItemsType = storedItems ? JSON.parse(storedItems) : {};
+
+	cartItems[Uid] = [];
+
+	localStorage.setItem('Cart', JSON.stringify(cartItems));
+}
+
+export { getRandomColor, pathSlugMaker, wordsToSlug, slugToWords, addToCartFn, removeFromCartFn, getCartItems, emptyCartFn, formatNumberWithCommas };

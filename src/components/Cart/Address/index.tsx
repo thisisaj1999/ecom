@@ -3,10 +3,13 @@ import { Card, Form, Input, Divider } from "antd";
 import styles from './Address.module.scss'
 import { formatNumberWithCommas } from '../../../utils/services/other';
 import Summary from '../Summary'
+import { IAddressValues } from '../../../contracts/IAddressValues';
 
 const index:React.FC = () => {
-
-  const onFinish = () => {}
+  
+  const onValuesChange = (changedValues: Partial<IAddressValues>, allValues: IAddressValues) => {
+    console.log('Form Values:', allValues);
+  };
 
   return (
     <div className={styles.CartItemsStyles}>
@@ -16,7 +19,7 @@ const index:React.FC = () => {
           style={{
             width: '100%'
           }}
-          onFinish={onFinish}
+          onValuesChange={onValuesChange}
           autoComplete="on"
         >
           <div className={styles.CardFieldsLayout}>

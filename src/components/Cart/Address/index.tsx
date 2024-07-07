@@ -1,7 +1,6 @@
 import React from 'react'
-import { Card, Form, Input, Divider } from "antd";
+import { Card, Form, Input } from "antd";
 import styles from './Address.module.scss'
-import { formatNumberWithCommas } from '../../../utils/services/other';
 import Summary from '../Summary'
 import { IAddressValues } from '../../../contracts/IAddressValues';
 

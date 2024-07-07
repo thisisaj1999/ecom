@@ -12,7 +12,7 @@ interface StepperProps {
   ThirdStep: React.FC;
 }
 
-const index: React.FC<StepperProps> = ({FirstStep, SecondStep, ThirdStep}):any => {
+const index: React.FC<StepperProps> = ({FirstStep, SecondStep, ThirdStep}) => {
   
   const Auth = useAuth();
 	const Uid = Auth.User?.uid;

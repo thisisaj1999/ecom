@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useGlobalStore, useDashboardStore } from "../../utils/store";
+import { useGlobalStore, useDashboardStore } from "../../../utils/store";
 
 // Import Swiper styles
 import "swiper/css";
@@ -8,27 +8,27 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import styles from "./MainPage.module.scss";
-import Card from "../Card";
+import Card from "../../Card";
 
 
 // Carousel Images
-import Img1 from "../../assets/carousel/img1.avif";
-import Img2 from "../../assets/carousel/img2.avif";
-import Img3 from "../../assets/carousel/img3.avif";
-import Img4 from "../../assets/carousel/img4.avif";
-import Img5 from "../../assets/carousel/img5.avif";
-import Img6 from "../../assets/carousel/img6.avif";
-import Img7 from "../../assets/carousel/img7.avif";
-import Img8 from "../../assets/carousel/img8.avif";
-import Img9 from "../../assets/carousel/img9.avif";
-import Img10 from "../../assets/carousel/img10.avif";
+import Img1 from "../../../assets/carousel/img1.avif";
+import Img2 from "../../../assets/carousel/img2.avif";
+import Img3 from "../../../assets/carousel/img3.avif";
+import Img4 from "../../../assets/carousel/img4.avif";
+import Img5 from "../../../assets/carousel/img5.avif";
+import Img6 from "../../../assets/carousel/img6.avif";
+import Img7 from "../../../assets/carousel/img7.avif";
+import Img8 from "../../../assets/carousel/img8.avif";
+import Img9 from "../../../assets/carousel/img9.avif";
+import Img10 from "../../../assets/carousel/img10.avif";
 
 // import required modules
 import { Autoplay, FreeMode, Navigation } from "swiper/modules";
-import { slugToWords } from "../../utils/services/other";
+import { slugToWords } from "../../../utils/services/other";
 
 // Types
-import { IItemsData } from "../../contracts/IItemsData";
+import { IItemsData } from "../../../contracts/IItemsData";
 
 
 const index: React.FC = () => {

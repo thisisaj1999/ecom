@@ -3,9 +3,9 @@ import styles from "./Dashboard.module.scss";
 
 // Components or Layouts
 import Sidebar from "../../components/Sidebar";
-import MainPage from "../../components/MainPage";
+import MainPage from "../../components/Render/MainPage";
 import Modal from '../../components/Modal'
-import ItemDetails from '../../components/ItemDetails'
+import ItemDetails from '../../components/Render/ItemDetails'
 import Loading from '../../components/Loading'
 // Hooks
 import { useLocation } from "react-router-dom";

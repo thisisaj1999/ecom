@@ -3,7 +3,6 @@ import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import Home from "../pages/Home";
 import Dashboard from "../pages/Dashboard";
-import Checkout from "../pages/Checkout";
 import { IRouteConfig } from "../contracts/IRouteConfig";
 import { useAuth } from '../utils/services/authentication'
 
@@ -53,7 +52,7 @@ const RoutesConfig = () => {
 				},
 				{
 					path: `/checkout`,
-					component: Checkout,
+					component: Dashboard,
 					exact: true,
 				}
 			];

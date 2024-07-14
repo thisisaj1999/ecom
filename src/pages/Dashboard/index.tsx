@@ -7,6 +7,7 @@ import { ItemDetails, MainPage } from "../../components/Render";
 import Modal from '../../components/Modal'
 import Loading from '../../components/Loading'
 import Order from "../Order";
+import Checkout from "../Checkout";
 // Hooks
 import { useLocation } from "react-router-dom";
 
@@ -49,7 +50,7 @@ const index: React.FC = () => {
 					{/* Pages */}
 					<div className={styles.PagesContainer}>
 						{location.pathname === '/dashboard' ? <MainPage/> 
-							: location.pathname === '/order-history' ? <Order/> : <ItemDetails/>
+							: location.pathname === '/order-history' ? <Order/> : location.pathname === '/checkout' ? <Checkout/> : <ItemDetails/>
 						}
 						<Modal />
 					</div>

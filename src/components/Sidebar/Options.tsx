@@ -4,6 +4,7 @@ import styles from "./Sidebar.module.scss";
 import { Badge } from 'antd';
 
 // Images
+import Bolt from '../../assets/logo.svg'
 import User from "../../assets/menu/user.svg";
 import Cart from "../../assets/menu/cart.svg";
 import Order from "../../assets/menu/order.svg";
@@ -25,8 +26,9 @@ type MenuItem = Required<MenuProps>["items"][number];
 const index = (badge: number) => {
 	const items: MenuItem[] = [
 		{
-			key: "grp",
+			key: "menuLogo",
 			label: <p className={styles.MenuMain}>Menu</p>,
+			// label: <img src={Bolt} alt="Bolt Logo" />,
 			type: "group",
 			children: [
 				{

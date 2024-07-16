@@ -8,6 +8,7 @@ import Modal from '../../components/Modal'
 import Loading from '../../components/Loading'
 import Order from "../Order";
 import Checkout from "../Checkout";
+
 // Hooks
 import { useLocation } from "react-router-dom";
 
@@ -33,8 +34,11 @@ const index: React.FC = () => {
   useEffect(()=>{
     if(location.pathname === '/dashboard'){
       Update.Global.currentPage('dashboard')
-    }else if(location.pathname === '/product')
+    } else if(location.pathname === '/product') {
 			Update.Global.currentPage('product')
+    } else if(location.pathname === '/order-history') {
+			Update.Global.currentPage('order-history')
+		}
   },[location])
 
 	return (

@@ -4,14 +4,24 @@ import Stepper from "../../components/Stepper";
 import { Products, Address, Payments } from "../../components/Cart";
 import { getCartItems } from "../../utils/services/other";
 import { useAuth } from "../../utils/services/authentication";
-import { useDashboardStore } from "../../utils/store";
+import { useDashboardStore, useGlobalStore } from "../../utils/store";
 import { IItemsData } from "../../contracts/IItemsData";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const index = () => {
+
+	const location = useLocation();
+	const navigate = useNavigate()
 
 	const State = {
 		Dashboard: {
 			cartItemsLength: useDashboardStore((State) => State.cartItemsLength)
+		},
+	};
+
+	const Update = {
+		Global: {
+			currentPage: useGlobalStore((State) => State.setCurrentPage)
 		},
 	};
 
@@ -26,6 +36,17 @@ const index = () => {
 			setCartItems(fetchedItems)
 		}
 	},[State.Dashboard.cartItemsLength])
+
+	useEffect(() => {
+		if(location.pathname === '/checkout') {
+			console.log(State.Dashboard.cartItemsLength)
+			if (State.Dashboard.cartItemsLength === 0) {
+				navigate('/dashboard')
+			}else{
+				Update.Global.currentPage('checkout')
+			}
+		} 
+	}, [location])
 
 	
 	const CartStep: React.FC = () => {

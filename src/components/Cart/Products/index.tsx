@@ -4,15 +4,18 @@ import { Card, Select, Divider } from "antd";
 import { IItemsData } from "../../../contracts/IItemsData";
 import { formatNumberWithCommas, getCartItems, removeFromCartFn } from "../../../utils/services/other";
 import { useAuth } from "../../../utils/services/authentication";
-import { useDashboardStore, useSummaryStore } from "../../../utils/store";
+import { useDashboardStore, useSummaryStore, useGlobalStore } from "../../../utils/store";
 import Loading from '../../Loading'
 import Summary from '../Summary'
+import { useNavigate } from "react-router-dom";
 
 interface ItemProps {
 	cartItems: IItemsData[];
 }
 
 const index: React.FC<ItemProps> = ({cartItems}) => {
+
+	const navigate = useNavigate()
 
 	const [cartItemsState, setCartItemsState] = useState<IItemsData[]>([...cartItems]);
 
@@ -32,7 +35,10 @@ const index: React.FC<ItemProps> = ({cartItems}) => {
 		Summary: {
 			subtotal: useSummaryStore((State) => State.setSubtotal),
 			total: useSummaryStore((State) => State.setTotal),
-		}
+		},
+		Global: {
+			currentPage: useGlobalStore((State) => State.setCurrentPage)
+		},
 	};
 
 	const Auth = useAuth();
@@ -47,6 +53,9 @@ const index: React.FC<ItemProps> = ({cartItems}) => {
 				Update.Summary.total(getPriceFromItems + State.Summary.shippingCharge)
 				setCartItemsState(fetchedItems)
 			}
+		} else {
+			navigate('/dashboard')
+			Update.Global.currentPage('dashboard')
 		}
 	},[ , State.Dashboard.cartItemsLength])
 

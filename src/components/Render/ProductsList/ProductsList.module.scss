@@ -1,9 +1,33 @@
 .ProductsListMain {
   padding: 2rem;
-  
+
   & .ProductsListMainHeading {
-    padding: 2rem 0.5rem 0.5rem 0.5rem;
+    padding: 2rem 0.5rem 0.5rem 1rem;
     font-size: 2rem;
     font-weight: 500;
+  }
+
+  & .ProductsListSwiper {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+
+    & .ProductsListSwiperRow {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      row-gap: 30px;
+      column-gap: 25px;
+
+      & img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
   }
 }

@@ -3,7 +3,7 @@ import styles from "./Dashboard.module.scss";
 
 // Components or Layouts
 import Sidebar from "../../components/Sidebar";
-import { ItemDetails, MainPage } from "../../components/Render";
+import { ItemDetails, MainPage, ProductsList } from "../../components/Render";
 import Modal from '../../components/Modal'
 import Loading from '../../components/Loading'
 import Order from "../Order";
@@ -54,7 +54,7 @@ const index: React.FC = () => {
 					{/* Pages */}
 					<div className={styles.PagesContainer}>
 						{location.pathname === '/dashboard' ? <MainPage/> 
-							: location.pathname === '/order-history' ? <Order/> : location.pathname === '/checkout' ? <Checkout/> : <ItemDetails/>
+							: location.pathname === '/order-history' ? <Order/> : location.pathname === '/checkout' ? <Checkout/> : <ProductsList/>
 						}
 						<Modal />
 					</div>

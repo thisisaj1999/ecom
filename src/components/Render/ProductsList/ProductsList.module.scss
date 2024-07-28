@@ -1,0 +1,9 @@
+.ProductsListMain {
+  padding: 2rem;
+  
+  & .ProductsListMainHeading {
+    padding: 2rem 0.5rem 0.5rem 0.5rem;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+}

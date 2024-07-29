@@ -1,8 +1,23 @@
 .ModalMainContainer {
-	& .CartMainStyles {
+	& :global(.ant-modal-body){
 		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		margin-top: 1rem;
+		justify-content: center;
+	}
+	
+	& .ProfileAvatarMain{
+		display: flex;
+		justify-content: center;
+		
+		& .ProfileAvatar{
+			width: 8rem;
+			height: 8rem;
+			font-size: 32px;
+			margin-bottom: 24px;
+		}
+	}
+
+	& .CardFieldsLayout{
+		display: flex;
+		gap: 3rem;
 	}
 }

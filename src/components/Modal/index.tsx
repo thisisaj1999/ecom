@@ -97,86 +97,62 @@ const index: React.FC = () => {
           <div className={styles.CardFieldsLayout}>
             <Form.Item
               style={{width: '100%'}}
-              label="Address Line 1"
-              name="addressLine1"
+              label="Email"
+              name="email"
               rules={[
                 {
                   required: true,
-                  message: 'Please input your Address',
+                  message: 'Please input your Email',
+                  type: 'email'
+                }
+              ]}
+            >
+              <Input style={{height: '40px'}} type="email" placeholder="johndoe@example.com" />
+            </Form.Item>
+
+            <Form.Item
+              style={{width: '100%'}}
+              label="Phone"
+              name="text"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input your Phone',
                 },
               ]}
             >
-              <Input style={{height: '40px'}} type="text" placeholder="#123, ABC Building" />
+              <Input style={{height: '40px'}} type="text" placeholder="+1 234 5678 90" />
             </Form.Item>
           </div>
 
           <div className={styles.CardFieldsLayout}>
             <Form.Item
               style={{width: '100%'}}
-              label="Address Line 2"
-              name="addressLine2"
-            >
-              <Input style={{height: '40px'}} type="text" />
-            </Form.Item>
-          </div>
-
-          <div className={styles.CardFieldsLayout}>
-            <Form.Item
-              style={{width: '100%'}}
-              label="City"
-              name="city"
+              label="Email"
+              name="email"
               rules={[
                 {
                   required: true,
-                  message: 'Please input your City',
-                },
+                  message: 'Please input your Email',
+                  type: 'email'
+                }
               ]}
             >
-              <Input style={{height: '40px'}} type="text"/>
+              <Input style={{height: '40px'}} type="email" placeholder="johndoe@example.com" />
             </Form.Item>
 
             <Form.Item
               style={{width: '100%'}}
-              label="State"
-              name="state"
+              label="Phone"
+              name="text"
               rules={[
                 {
                   required: true,
-                  message: 'Please input your state',
+                  message: 'Please input your Phone',
                 },
               ]}
             >
-              <Input style={{height: '40px'}} type="text"/>
-            </Form.Item>
-          </div>
-         
-          <div className={styles.CardFieldsLayout}>
-            <Form.Item
-              style={{width: '100%'}}
-              label="Country"
-              name="country"
-              rules={[
-                {
-                  required: true,
-                  message: 'Please input your Country',
-                },
-              ]}
-            >
-              <Input style={{height: '40px'}} type="text"/>
-            </Form.Item>
-
-            <Form.Item
-              style={{width: '100%'}}
-              label="Pin Code"
-              name="pincode"
-              rules={[
-                {
-                  required: true,
-                  message: 'Please input your Pin Code',
-                },
-              ]}
-            >
-              <Input style={{height: '40px'}} type="text"/>
+              <Input style={{height: '40px'}} type="text" placeholder="+1 234 5678 90" />
             </Form.Item>
           </div>
 

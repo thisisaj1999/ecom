@@ -1,6 +1,6 @@
 import React  from "react";
 import styles from "./Modal.module.scss";
-import { Modal, Avatar, Form, Input } from "antd";
+import { Modal, Avatar, Form, Input, Select } from "antd";
 import { UserOutlined } from '@ant-design/icons';
 import { useModalStore } from "../../utils/store";
 
@@ -38,6 +38,11 @@ const index: React.FC = () => {
 	const onValuesChange = (changedValues: Partial<IAddressValues>, allValues: IAddressValues) => {
     console.log('Form Values:', allValues);
   };
+
+  const handleGender = (value: string) => {
+    console.log(`selected ${value}`);
+  };
+  
 
 	return (
 		<>
@@ -128,22 +133,22 @@ const index: React.FC = () => {
           <div className={styles.CardFieldsLayout}>
             <Form.Item
               style={{width: '100%'}}
-              label="Email"
-              name="email"
+              label="Date of Birth"
+              name="date"
               rules={[
                 {
                   required: true,
-                  message: 'Please input your Email',
-                  type: 'email'
+                  message: 'Please input your DOB',
+                  type: 'date'
                 }
               ]}
             >
-              <Input style={{height: '40px'}} type="email" placeholder="johndoe@example.com" />
+              <Input style={{height: '40px'}} type="date"/>
             </Form.Item>
 
             <Form.Item
               style={{width: '100%'}}
-              label="Phone"
+              label="Gender"
               name="text"
               rules={[
                 {
@@ -152,7 +157,15 @@ const index: React.FC = () => {
                 },
               ]}
             >
-              <Input style={{height: '40px'}} type="text" placeholder="+1 234 5678 90" />
+              <Select
+                // defaultValue="lucy"
+                onChange={handleGender}
+                options={[
+                  { value: 'male', label: 'Male' },
+                  { value: 'female', label: 'Female' },
+                  { value: 'PNTS', label: 'Prefer not to say' }
+                ]}
+              />
             </Form.Item>
           </div>
 

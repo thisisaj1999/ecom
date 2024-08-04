@@ -7,6 +7,7 @@ import { IAddressValues } from '../../../contracts/IAddressValues';
 const index:React.FC = () => {
   
   const onValuesChange = (changedValues: Partial<IAddressValues>, allValues: IAddressValues) => {
+    console.log('Form Values:', changedValues);
     console.log('Form Values:', allValues);
   };
 

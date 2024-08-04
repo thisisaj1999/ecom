@@ -41,6 +41,24 @@ const index: React.FC = () => {
 		}
   },[location])
 
+
+	const renderComponent = () => {
+		if (location.pathname === '/dashboard') {
+			return <MainPage />;
+		} else if (location.pathname === '/order-history') {
+			return <Order />;
+		} else if (location.pathname === '/checkout') {
+			return <Checkout />;
+		} else if (location.pathname.startsWith('/product/')) {
+			return <ItemDetails />;
+		} else if (location.pathname.startsWith('/all-sports/') || location.pathname.startsWith('/brands/')) {
+			return <ProductsList />;
+		} else {
+			return <MainPage />;
+		}
+	};
+
+
 	return (
 		<div className={styles.DashboardMain}>
 			{State.Global.isLoading ? 
@@ -53,9 +71,7 @@ const index: React.FC = () => {
 					</div>
 					{/* Pages */}
 					<div className={styles.PagesContainer}>
-						{location.pathname === '/dashboard' ? <MainPage/> 
-							: location.pathname === '/order-history' ? <Order/> : location.pathname === '/checkout' ? <Checkout/> : <ProductsList/>
-						}
+						{renderComponent()}
 						<Modal />
 					</div>
 				</>

@@ -31,7 +31,7 @@ const RoutesConfig = () => {
 					exact: true,
 				},
 				{
-					path: `/product/:slug`,
+					path: `/product/:productId`,
 					component: Dashboard,
 					exact: true,
 				},

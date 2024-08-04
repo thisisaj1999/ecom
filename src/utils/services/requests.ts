@@ -11,7 +11,8 @@ const Endpoints = {
 
   // Items
   GET_ALL_ITEMS : `${BaseURL}/all/items/`,
-  GET_ITEM : `${BaseURL}/all/items/`
+  GET_ITEM : `${BaseURL}/all/items/`,
+  GET_ITEM_BY_ID : `${BaseURL}/item`
 }
 
 const getAllItems = async () => {
@@ -24,6 +25,16 @@ const getAllItems = async () => {
   }
 }
 
+const getItemByID = async (item_id: string) => {
+  try {
+    const response = await axios.get(`${Endpoints.GET_ITEM_BY_ID}/${item_id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching item by id:", error);
+    throw error;
+  }
+}
 
 
-export { Endpoints, getAllItems };
+
+export { Endpoints, getAllItems, getItemByID };

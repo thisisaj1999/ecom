@@ -16,6 +16,7 @@ import { Autoplay, FreeMode, Navigation } from "swiper/modules";
 
 // Types
 import { IItemsData } from "../../../contracts/IItemsData";
+import { useParams } from "react-router-dom";
 
 const ImagesData = [
 	{
@@ -32,6 +33,9 @@ const ImagesData = [
 
 
 const index: React.FC = () => {
+	const params = useParams()
+	console.log(params.productId)
+	// I need to create getItemById in backend
 
 	const [numItemsToShow, setNumItemsToShow] = useState(3); // Default number of items to show
 

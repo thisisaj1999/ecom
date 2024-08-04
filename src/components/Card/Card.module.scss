@@ -17,6 +17,13 @@
 		padding: 2rem;
 		width: 100%;
 		height: 100%;
+		cursor: pointer;
+		transition: scale .3s ease-in-out;
+
+		&:hover {
+			scale: 1.03;
+			transition: scale .3s ease-in-out;
+		}
 	}
 
 	& .LikeBtn {

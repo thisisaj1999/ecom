@@ -11,6 +11,7 @@ import { useAuth } from "../../utils/services/authentication";
 import { addToCartFn, removeFromCartFn, getCartItems, formatNumberWithCommas } from "../../utils/services/other";
 
 import { useDashboardStore, useUserStore } from "../../utils/store";
+import { useNavigate } from "react-router-dom";
 
 interface ItemProps {
   data: IItemsData;
@@ -19,6 +20,7 @@ interface ItemProps {
 const index: React.FC<ItemProps> = ({ data }) => {
 	const Auth = useAuth()
 	const Uid = Auth.User?.uid
+	const navigate = useNavigate()
 
 	const [isLiked, setIsLiked] = useState(false);
 	const [addToCart, setAddToCart] = useState(false);
@@ -62,10 +64,14 @@ const index: React.FC<ItemProps> = ({ data }) => {
 		Update.Dashboard.cartItemsLength(cartItems?.length || 0)
 	},[addToCartHandler])
 
+	const navigateToItem = (id: number) => {
+		navigate(`/product/${id}`)
+	}
+
 	return (
 		<div className={styles.CardMain}>
 			<div className={styles.Card}>
-				<img src={data?.images[0]} alt="" className={styles.ProductImg} />
+				<img src={data?.images[0]} alt="" className={styles.ProductImg} onClick={() => navigateToItem(data?.id)}/>
 				<div className={styles.LikeBtn}>
 					<svg
 						className={styles.Like}
@@ -86,12 +92,12 @@ const index: React.FC<ItemProps> = ({ data }) => {
 				</div>
 				<div className={styles.CardContent}>
 					<div>
-						<p className={styles.CardProductName}>
+						<p className={styles.CardProductName} onClick={() => navigateToItem(data?.id)}>
 							<Tooltip placement="topLeft" title={data?.title}>
 								{data?.title}
 							</Tooltip>
 						</p>
-						<p className={styles.CardProductPrice}>{`$${formatNumberWithCommas(data?.price)}`}</p>
+						<p className={styles.CardProductPrice} onClick={() => navigateToItem(data?.id)}>{`$${formatNumberWithCommas(data?.price)}`}</p>
 					</div>
 					<div
 						className={styles.addToCartBtn}

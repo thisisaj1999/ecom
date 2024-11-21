@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Card.module.scss";
 
+// ANTD
 import { Tooltip } from "antd";
+
+// Component and Layout
 
 // Types
 import { IItemsData } from "../../contracts/IItemsData";

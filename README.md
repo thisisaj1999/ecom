@@ -27,8 +27,8 @@ Before running this project, ensure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone <repository-url>
-   cd ecommerce_splitted
+   git clone https://github.com/thisisaj1999/ecom.git
+   cd ecom
    ```
 
 2. **Install dependencies:**

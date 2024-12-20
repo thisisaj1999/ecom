@@ -27,8 +27,8 @@ Before running this project, ensure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/thisisaj1999/ecom.git
-   cd ecom
+   git clone <repository-url>
+   cd ecommerce_splitted
    ```
 
 2. **Install dependencies:**
@@ -134,4 +134,7 @@ Before running this project, ensure you have the following installed:
 
 This project is licensed under the [MIT License](LICENSE).
 
+---
+
+Feel free to contribute and enhance the e-commerce platform. Happy coding!
 

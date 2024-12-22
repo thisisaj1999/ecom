@@ -129,9 +129,3 @@ Before running this project, ensure you have the following installed:
    ```
 
 5. **Open a pull request.**
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----

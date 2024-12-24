@@ -119,13 +119,13 @@ Before running this project, ensure you have the following installed:
 3. **Commit your changes:**
 
    ```bash
-   git commit -m "Add your message here"
+   git commit -m "Add your Message here"
    ```
 
 4. **Push to the branch:**
 
    ```bash
-   git push origin feature/your-feature
+   git push origin branch-name
    ```
 
 5. **Open a pull request.**

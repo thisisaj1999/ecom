@@ -1,15 +1,15 @@
 # E-Commerce Website
 
-A modern e-commerce application built with React, TypeScript, and Vite, featuring a responsive design system and robust state management.
+A modern e-commerce app built with React, TypeScript, and Vite. It features a responsive design, smooth animations, and easy state management.
 
-## Key Features
-- React & TypeScript for type-safe, component-based development
-- Ant Design component library for polished UI
-- Firebase authentication and real-time database
-- Zustand for simplified state management
-- Interactive elements with Lottie animations
-- Responsive product carousels using Swiper
-- SASS for advanced styling
+## Features
+- **React & TypeScript** for scalable development
+- **Ant Design** for a sleek UI
+- **Firebase** authentication & database
+- **Zustand** for state management
+- **Lottie animations** for interactivity
+- **Swiper** for responsive carousels
+- **SASS** for styling
 
 ## Quick Start
 ```bash
@@ -28,24 +28,23 @@ npm run build
 ## Project Structure
 ```
 src/
-├── components/        # Reusable UI components
-├── pages/            # Route-level components
-├── routes/           # Application routing
-├── services/         # API and utility functions
-├── state/           # Zustand store configurations
-├── styles/          # Global and component styles
-└── App.tsx          # Application entry point
+├── components/        # UI components
+├── pages/            # App pages
+├── routes/           # Routing
+├── services/         # API & utilities
+├── state/           # Zustand store
+├── styles/          # Global styles
+└── App.tsx          # Entry point
 ```
 
-## Core Dependencies
+## Core Stack
 - **Frontend:** React, TypeScript, Ant Design
-- **State Management:** Zustand
-- **Backend Integration:** Firebase, Axios
+- **State:** Zustand
+- **Backend:** Firebase, Axios
 - **UI/UX:** Lottie, Swiper, Notistack
-- **Build Tools:** Vite, SASS
+- **Build:** Vite, SASS
 
 ## Contributing
-We welcome contributions! Please:
-1. Fork the repository
+1. Fork the repo
 2. Create a feature branch
-3. Submit a pull request with a clear description of your changes
+3. Submit a pull request with details of your changes

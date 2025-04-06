@@ -1,4 +1,4 @@
-# 🍽️ E-Commerce App  
+# E-Commerce App  
 
 A modern e-commerce platform built with **React, TypeScript, and Vite**. It offers a sleek UI, smooth animations, and effortless state management.  
 
@@ -43,10 +43,3 @@ src/
 - **Backend:** Firebase, Axios  
 - **UI/UX:** Lottie, Swiper, Notistack  
 - **Build Tools:** Vite, SASS  
-
-## 🤝 Contributing  
-1⃣ Fork the repo 🚀  
-2⃣ Create a feature branch ✨  
-3⃣ Submit a pull request with details 🔥  
-
-Let’s build something amazing! 🚀🔥

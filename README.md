@@ -4,13 +4,13 @@ A modern e-commerce platform built with **React, TypeScript, and Vite**. It offe
 
 ## 🚀 Features
 
-✅ **React + TypeScript** for scalable and maintainable code
-✅ **Ant Design** for a clean, professional UI
-✅ **Firebase** for authentication & real-time database
-✅ **Zustand** for lightweight state management
-✅ **Lottie Animations** for engaging interactions
-✅ **Swiper** for responsive, touch-friendly carousels
-✅ **SASS** for modular and efficient styling
+- ✅ **React + TypeScript** for scalable and maintainable code
+- ✅ **Ant Design** for a clean, professional UI
+- ✅ **Firebase** for authentication & real-time database
+- ✅ **Zustand** for lightweight state management
+- ✅ **Lottie Animations** for engaging interactions
+- ✅ **Swiper** for responsive, touch-friendly carousels
+- ✅ **SASS** for modular and efficient styling
 
 ## ⚡ Quick Start
 
